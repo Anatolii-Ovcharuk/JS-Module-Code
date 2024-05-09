@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS Module Code - Show</title>
+    <link rel="icon" href="./img/svg/javascript.svg" sizes="32x32" type="image/svg" /> <!-- Иконка на вкладке, use "type" - image/png image/svg image/x-icon Размер: 16х16 32х32 180х180 -->
+    <meta http-equiv="Permissions-Policy" content="web-share=*;"/>
+    <meta name="referrer" content="unsafe-url" /> <!-- Use one of this: no-referrer / no-referrer-when-downgrade / origin / origin-when-cross-origin / same-origin / strict-origin / strict-origin-when-cross-origin / unsafe-url  -->
+    <link rel="canonical" href="https://./" /> <!-- Detect basic page for search sites -->
+    <meta name="description" content=""> <!-- Show description page in search sites -->
+
+
+    <!-- СПИСОК ПОДКЛЮЧАЕМЫХ СТИЛЕЙ -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/modern-normalize@1.1.0/modern-normalize.min.css">
+   <!-- <link rel="stylesheet" href="./css/modern-normalize.css" /> -->
+   <!-- <link rel="stylesheet" href="./css/styles.css" /> -->
+   <!-- <link rel="stylesheet" href="./SASS/main.css" /> -->
+   <!-- <link rel="preload" href="./fonts/*файл*.TTF" as="font" /> --> <!-- Ещё один способ оптимизации — предварительная загрузка шрифтов, сказав браузеру, что важно ПРЕДзагрузить шрифт в первую очередь. -->
+   <link rel="stylesheet" href="./css/main.css"/>
+
+    <!-- СПИСОК ВНУТРЕННИХ СТИЛЕЙ -->
+<!-- <style type="text/css"> 
+/* modern-normalize v1.1.0 | MIT License | https://github.com/sindresorhus/modern-normalize */
+
+/* Document======== */
+/** Use a better box model (opinionated). */
+*, ::before, ::after {box-sizing: border-box;}
+/** Use a more readable tab size (opinionated). */
+html { -moz-tab-size: 4; tab-size: 4;}
+/** 1. Correct the line height in all browsers.
+2. Prevent adjustments of font size after orientation changes in iOS. */
+html { line-height: 1.15; /* 1 */ -webkit-text-size-adjust: 100%; /* 2 */ }
+/* Sections======== */
+/** Remove the margin in all browsers. */
+body {margin: 0;}
+/** Improve consistency of default fonts in all browsers. (https://github.com/sindresorhus/modern-normalize/issues/3) */
+body { font-family: system-ui, -apple-system, /* Firefox supports this but not yet `system-ui` */ 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji';}
+/* Grouping content ================ */
+/** 1. Add the correct height in Firefox.
+2. Correct the inheritance of border color in Firefox. (https://bugzilla.mozilla.org/show_bug.cgi?id=190655) */
+hr {height: 0; /* 1 */ color: inherit; /* 2 */}
+/* Text-level semantics ==================== */
+/** Add the correct text decoration in Chrome, Edge, and Safari. */
+abbr[title] {text-decoration: underline dotted;}
+/** Add the correct font weight in Edge and Safari. */
+b, strong {font-weight: bolder;}
+/** 1. Improve consistency of default fonts in all browsers. (https://github.com/sindresorhus/modern-normalize/issues/3)
+2. Correct the odd 'em' font sizing in all browsers. */
+code, kbd, samp, pre {font-family: ui-monospace, SFMono-Regular, Consolas, 'Liberation Mono', Menlo, monospace; /* 1 */ font-size: 1em; /* 2 */}
+/** Add the correct font size in all browsers.*/
+small {font-size: 80%;}
+/** Prevent 'sub' and 'sup' elements from affecting the line height in all browsers.*/
+sub, sup {font-size: 75%; line-height: 0; position: relative; vertical-align: baseline;}
+sub {bottom: -0.25em;}
+sup {top: -0.5em;}
+/* Tabular data============*/
+/** 1. Remove text indentation from table contents in Chrome and Safari. (https://bugs.chromium.org/p/chromium/issues/detail?id=999088, https://bugs.webkit.org/show_bug.cgi?id=201297)
+2. Correct table border color inheritance in all Chrome and Safari. (https://bugs.chromium.org/p/chromium/issues/detail?id=935729, https://bugs.webkit.org/show_bug.cgi?id=195016)*/
+table {text-indent: 0; /* 1 */ border-color: inherit; /* 2 */}
+/*Forms=====*/
+/** 1. Change the font styles in all browsers.
+2. Remove the margin in Firefox and Safari.*/
+button, input, optgroup, select, textarea {font-family: inherit; /* 1 */ font-size: 100%; /* 1 */ line-height: 1.15; /* 1 */ margin: 0; /* 2 */}
+/**Remove the inheritance of text transform in Edge and Firefox.
+1. Remove the inheritance of text transform in Firefox.*/
+button, select { /* 1 */ text-transform: none;}
+/**Correct the inability to style clickable types in iOS and Safari.*/
+button,[type='button'],[type='reset'],[type='submit'] {-webkit-appearance: button;}
+/**Remove the inner border and padding in Firefox.*/
+::-moz-focus-inner {border-style: none;	padding: 0;}
+/**Restore the focus styles unset by the previous rule.*/
+:-moz-focusring {outline: 1px dotted ButtonText;}
+/**Remove the additional ':invalid' styles in Firefox.See: 
+https://github.com/mozilla/gecko-dev/blob/2f9eacd9d3d995c937b4251a5557d95d494c9be1/layout/style/res/forms.css#L728-L737*/
+:-moz-ui-invalid {box-shadow: none;}
+/**Remove the padding so developers are not caught out when they zero out 'fieldset' elements in all browsers.*/
+legend {padding: 0;}
+/**Add the correct vertical alignment in Chrome and Firefox.*/
+progress {vertical-align: baseline;}
+/**Correct the cursor style of increment and decrement buttons in Safari.*/
+::-webkit-inner-spin-button, ::-webkit-outer-spin-button { height: auto; }
+/** 1. Correct the odd appearance in Chrome and Safari. 
+2. Correct the outline style in Safari.*/
+[type='search'] { -webkit-appearance: textfield; /* 1 */ outline-offset: -2px; /* 2 */}
+/** Remove the inner padding in Chrome and Safari on macOS.*/
+::-webkit-search-decoration {-webkit-appearance: none;}
+/** 1. Correct the inability to style clickable types in iOS and Safari.
+2. Change font properties to 'inherit' in Safari.*/
+::-webkit-file-upload-button {-webkit-appearance: button; /* 1 */font: inherit; /* 2 */}
+/*Interactive===========*/
+/*Add the correct display in Chrome and Safari.*/
+summary {display: list-item;}
+/* https://github.com/sindresorhus/modern-normalize/blob/main/modern-normalize.css */
+
+
+/*! modern-normalize v1.0.0 | MIT License | https://github.com/sindresorhus/modern-normalize (FOR INLINE)*/
+*, ::after, ::before {box-sizing: border-box}
+:root {-moz-tab-size: 4; tab-size: 4}
+html {line-height: 1.15; -webkit-text-size-adjust: 100%}
+body {margin: 0}
+body {font-family: system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji'}
+hr {height: 0; color: inherit}
+abbr[title] {text-decoration: underline dotted}
+b, strong {font-weight: bolder}
+code, kbd, pre, samp {font-family: ui-monospace, SFMono-Regular, Consolas, 'Liberation Mono', Menlo, monospace; font-size: 1em}
+small {font-size: 80%}
+sub, sup {font-size: 75%; line-height: 0; position: relative; vertical-align: baseline}
+sub {bottom: -.25em}
+sup {top: -.5em}
+table {text-indent: 0;border-color: inherit}
+button, input, optgroup, select, textarea {font-family: inherit; font-size: 100%; line-height: 1.15; margin: 0}
+button, select {text-transform: none}
+[type=button], [type=reset], [type=submit], button {-webkit-appearance: button}
+::-moz-focus-inner {border-style: none; padding: 0}
+:-moz-focusring {outline: 1px dotted ButtonText}
+:-moz-ui-invalid {box-shadow: none}
+legend {padding: 0}
+progress {vertical-align: baseline}
+::-webkit-inner-spin-button, ::-webkit-outer-spin-button {height: auto}
+[type=search] {-webkit-appearance: textfield;outline-offset: -2px}
+::-webkit-search-decoration {-webkit-appearance: none}
+::-webkit-file-upload-button {-webkit-appearance: button;font: inherit}
+summary {display: list-item}
+    </style>  -->
+
+    <style type="text/css">
+
+:root {
+    --text-color: #252525;
+}
+
+body {
+    background-color: #dadada;
+    color: var(--text-color);
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+header, main, footer {
+    opacity: 0;
+    transition: linear 500ms opacity;
+}
+    /* PRELOADING STYLE  */
+
+.preload {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+
+    color: #252525;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    
+    width: 335px;
+    height: 335px;
+
+    background-color: var(--body-color);
+    border: 1px solid var(--text-color);
+    border-radius: 50% 50%;
+
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 1.3;
+
+    -webkit-box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14), 0px 2px 1px rgba(0, 0, 0, 0.2), 0px 1px 2px rgba(0, 0, 0, 0.2), -1px 2px 4px 3px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14), 0px 2px 1px rgba(0, 0, 0, 0.2), 0px 1px 2px rgba(0, 0, 0, 0.2), -1px 2px 4px 3px rgba(0, 0, 0, 0.75);
+    box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14), 0px 2px 1px rgba(0, 0, 0, 0.2), 0px 1px 2px rgba(0, 0, 0, 0.2), -1px 2px 4px 3px rgba(0, 0, 0, 0.75);
+
+    /* Animation block */
+    opacity: 1;
+    transition: linear 500ms opacity;
+
+    /*  */
+    cursor: default;
+    user-select: none;
+    z-index: -3;
+    overflow: hidden;
+}
+
+.preload__logo {
+    fill: var(--logo-color);
+    width: 64px;
+    height: 64px;
+
+    padding: 0px;
+    margin: 10px;
+}
+
+.preload__title {
+    font-size: 28px;
+    color: inherit;
+
+    padding: 5px;
+    margin: 0px;
+}
+
+.preload__text {
+    font-size: 12px;
+    color: inherit;
+
+    padding: 5px;
+    margin: 0px;    
+}
+
+.preload__status {
+    font-size: 16px;
+    color: inherit;
+
+    padding: 5px;
+    margin: 0px;   
+}
+
+.preload__ammount {
+    font-size: 16px;
+    color: inherit;
+
+    position: fixed;
+    z-index: -2;
+    left: 50%;
+    transform:translate(-50%, 0%); 
+}
+
+.preload__progress {
+    position: fixed;
+    z-index: -2;
+    left: 47%;
+    transform:translate(-50%, 0%); 
+    
+    background-color: #dadada;
+
+    width: 180px;
+    height: 24px;
+
+    padding: 1px;
+    margin: 9px;    
+}
+
+/* Mozilla */
+
+::-moz-progress-bar {
+    background-color: #909090;
+}
+
+:indeterminate::-moz-progress-bar {
+    width: 10px;
+}
+
+/* Edge | IE */
+
+.preload__progress::-ms-fill {
+    background-color: #909090;
+}
+
+/* Webkit */
+
+.preload__progress {
+    -webkit-appearance: none;
+}
+
+::-webkit-progress-inner-element {
+    padding: 1px;
+    border: 0px;
+}
+
+::-webkit-progress-bar {
+    background-color: #dadada;
+}
+
+::-webkit-progress-value {
+    background-color: #8585ff;
+}
+    </style>
+
+</head>
+<body id="body">
+    <div class="preload" preload id="preload">
+        <svg xmlns="http://www.w3.org/2000/svg" version="1.0" class="preload__logo" viewBox="0 0 32 32">
+            <path d="M0 0h32v32h-32zM29.379 24.368c-0.233-1.46-1.184-2.687-4.004-3.831-0.981-0.46-2.072-0.78-2.396-1.52-0.121-0.44-0.14-0.68-0.061-0.94 0.2-0.861 1.22-1.12 2.020-0.88 0.52 0.16 1 0.56 1.301 1.2 1.379-0.901 1.379-0.901 2.34-1.5-0.36-0.56-0.539-0.801-0.781-1.040-0.84-0.94-1.959-1.42-3.779-1.379l-0.94 0.119c-0.901 0.22-1.76 0.7-2.28 1.34-1.52 1.721-1.081 4.721 0.759 5.961 1.82 1.36 4.481 1.659 4.821 2.94 0.32 1.56-1.16 2.060-2.621 1.88-1.081-0.24-1.68-0.781-2.34-1.781l-2.44 1.401c0.28 0.64 0.6 0.919 1.080 1.479 2.32 2.341 8.12 2.221 9.161-1.339 0.039-0.12 0.32-0.94 0.099-2.2zM17.401 14.708h-2.997c0 2.584-0.012 5.152-0.012 7.74 0 1.643 0.084 3.151-0.184 3.615-0.44 0.919-1.573 0.801-2.088 0.64-0.528-0.261-0.796-0.621-1.107-1.14-0.084-0.14-0.147-0.261-0.169-0.261l-2.433 1.5c0.407 0.84 1 1.563 1.765 2.023 1.14 0.68 2.672 0.9 4.276 0.54 1.044-0.301 1.944-0.921 2.415-1.881 0.68-1.24 0.536-2.76 0.529-4.461 0.016-2.739 0-5.479 0-8.239z"></path></svg>
+            <!-- Default color: fill="#f7df1e" -->
+        <h1 class="preload__title">"JS Module Code"</h1>
+        <p class="preload__text">Made by Anatolii Ovcharuk - v. 1.0 | 08.05.2024</p>
+        <div style="display: flex;justify-content: center;align-items: center;padding: 10px;"><progress class="preload__progress" preload__progress id="preload__progress" value="0" max="100"></progress><p class="preload__ammount" preload__ammount id="preload__ammount">0%</p></div>
+        <p class="preload__status" preload__status id="preload__status">Loading...</p>
+    </div>
+    <header id="header">
+        <h2 style="text-align: center;padding: 10px;">Console:</h2>
+        <pre style="display: block;margin: 10px auto;padding: 10px;width: 75%;height: 100px;box-shadow: inset 0px 0px 10px rgba(0,0,0,0.5);"></pre>
+    </header>
+    <main id="main">
+        <section class="section">
+            <h2 class="section__name">Name Script: Current Date Module</h2>
+            <p class="section__text time" id="time" time></p>
+            <p class="section__text" id="date"></p>
+        </section>
+        <section class="section">
+            <h2 class="section__name">Name Script: IP Info Module </h2>
+            <p class="section__text ip" id="ip" ip></p>
+        </section>
+        <section class="section">
+            <h2 class="section__name">Name Script: Visit and time loading counter module</h2>
+            <p class="section__text visit" id="visit" visit></p>
+            <button class="counter-reset" id="counter-reset" counter-reset href="" type="button" aria-label="Reset counter"><svg
+                    class="counter-reset__icon">
+                    <use href="../../img/svg/sprite.svg#reset"></use></svg>
+                <p class="counter-reset__text">Reset counter</p>
+            </button>
+            </section>
+        </section>
+        <section class="section">
+            <h2 class="section__name">Name Script: Theme Module</h2>
+            <button class="theme" id="theme" href="" type="button" aria-label="change background theme on page" theme>
+                <svg class="theme__icon"><use href="./img/svg/sprite.svg#light"></use></svg>
+                <svg class="theme__icon"><use href="./img/svg/sprite.svg#moon"></use></svg>
+                <p class="footer__menu__button-theme__txt">Change Theme</p>
+            </button>
+        </section>
+        <!-- <section class="section">
+            <h2 class="section__name">Name Script:</h2>
+            <p class="section__text"></p>
+        </section>
+        <section class="section">
+            <h2 class="section__name">Name Script:</h2>
+            <p class="section__text"></p>
+        </section> -->
+    </main>
+    <footer id="footer">
+<a class="link" href="https://github.com/Anatolii-Ovcharuk" target="_blank"><svg class="menu__link__icon"><use href="./img/svg/sprite.svg#github"></use></svg><p>Looking account on GitHub</p></a>
+<a class="link" href="https://telegram.me/ovcharuk_tolik" target="_blank"><svg class="menu__link__icon"><use href="./img/svg/sprite.svg#telegram"></use></svg><p>Send message on Telegram</p></a>
+    </footer>
+    <!-- JAVA SCRIPT -->
+    <!-- <script src="" type="module"></script> -->
+
+    <script type="module">
+        // Console Log in HTML SCRIPT
+        console._log = console.log;
+        console.log = function () {
+            document.querySelector('pre').innerText = arguments[0];
+            console._log.apply(null, arguments);
+        }
+
+        console.log("Initializate console ready. Version 1.0 - Update: 08.05.2024 | Made by Anatolii Ovcharuk.")
+    </script>
+
+    <script>
+        // PRELOADING SCRIPT
+        const elem = {
+            header: document.querySelector("#header"),
+            main: document.querySelector("#main"),
+            footer: document.querySelector("#footer"),
+        }
+
+        const refs = {
+            // CSS
+            // pre: document.body.querySelector(".preload"),
+            // pre_pro: document.body.querySelector(".preload__progress"),
+            // pre_amm: document.body.querySelector(".preload__ammount"),
+            // pre_stat: document.body.querySelector(".preload__status"),
+
+            // Atribute
+            // pre: document.body.querySelector("[preload]"),
+            // pre_pro: document.body.querySelector("[preload__progress]"),
+            // pre_amm: document.body.querySelector("[preload__ammount]"),
+            // pre_stat: document.body.querySelector("[preload__status]"),
+
+            // ID
+            pre: document.body.querySelector("#preload"),
+            pre_pro: document.body.querySelector("#preload__progress"),
+            pre_amm: document.body.querySelector("#preload__ammount"),
+            pre_stat: document.body.querySelector("#preload__status"),
+
+            // ID
+                // pre: document.getElementById("preload"),
+                // pre_pro: document.getElementById("preload__progress"),
+                // pre_amm: document.getElementById("preload__ammount"),
+                // pre_stat: document.getElementById("preload__status"),
+        }
+
+        // Start animation
+        refs.pre.style.opacity = 1;
+        elem.header.style.opacity = 0;
+        elem.main.style.opacity = 0;
+        elem.footer.style.opacity = 0;
+
+        // Default
+        refs.pre_amm.innerHTML = "10%";
+        refs.pre_pro.value = 10;
+        refs.pre_stat.innerHTML = "Loading - Date Module..."
+    </script>
+        <script src="./js/current_date_module_v.1.1.js"></script>
+
+            <script>
+                // PRELOADING SCRIPT
+                // Default
+                refs.pre_amm.innerHTML = "20%";
+                refs.pre_pro.value = 20;
+                refs.pre_stat.innerHTML = "Loading - Info Module..."
+            </script>
+        <script src="./js/ip_info_module_v.1.1.js" type="module"></script>
+
+            <script>
+                // PRELOADING SCRIPT
+                // Default
+                refs.pre_amm.innerHTML = "30%";
+                refs.pre_pro.value = 30;
+                refs.pre_stat.innerHTML = "Loading - Counter module..."
+            </script>
+        <script src="./js/visit_and_time_loading_counter_module_v.1.2.js" type="module"></script>
+
+            <script>
+                // PRELOADING SCRIPT
+                // Default
+                refs.pre_amm.innerHTML = "40%";
+                refs.pre_pro.value = 40;
+                refs.pre_stat.innerHTML = "Loading - Theme Module..."
+            </script>
+        <script src="./js/theme_module_v.1.1.js" type="module"></script>
+
+    <script>
+    // PRELOADING SCRIPT
+        // End animation
+        setTimeout(()=> {
+            refs.pre.style.opacity = 0;
+            elem.header.style.opacity = 1;
+            elem.main.style.opacity = 1;
+            elem.footer.style.opacity = 1;
+        }, 1500)
+
+        // Default
+        refs.pre_amm.innerHTML = "100%";
+        refs.pre_pro.value = 100;
+        refs.pre_stat.innerHTML = "Ready"
+    </script>
+</body>
+</html>

@@ -1,0 +1,31 @@
+@mixin font($fw: 400, $fs: 14px, $lh: 1.2, $ls: 0.03em) {
+    font-weight: $fw;
+    font-size: $fs;
+    line-height: $lh; /* 16px or 1.2 */
+    letter-spacing: $ls;
+}
+
+@mixin fc {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+@mixin mc {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+@mixin p($pt: 0px, $pr: 0px, $pb: 0px, $pl: 0px) {
+    padding-top: $pt;
+    padding-right: $pr;
+    padding-bottom: $pb;
+    padding-left: $pl;
+}
+
+@mixin m($mt: 0px, $mr: 0px, $mb: 0px, $ml: 0px) {
+    margin-top: $mt;
+    margin-right: $mr;
+    margin-bottom: $mb;
+    margin-left: $ml;
+}

@@ -1,0 +1,112 @@
+/* ПЕРЕМЕННЫЕ CSS */
+
+:root {
+    --body-color: #dadada;
+    --button-color: ;
+    --link-color: ;
+    --select-color: ;
+    --hover-color: ;
+    --focus-color: ;
+    --text-color: #252525;
+    --title-color: ;
+    --icon-color: ;
+    --header-color: ;
+    
+    --general-color: ;
+    --primary-color: ;
+    --secondary-color: ;
+
+    --width-page: ;
+    --height-page: ;
+}
+
+/* ПЕРЕМЕННЫЕ SASS */
+
+$body-color: var(--body-color);
+$button-color: var(--button-color);
+$link-color: var(--link-color);
+$select-color: var(--select-color);
+$hover-color: var(--hover-color);
+$focus-color: var(--focus-color);
+$text-color: var(--text-color);
+$title-color: var(--title-color);
+$icon-color: var(--icon-color);
+$header-color: var(--header-color);
+
+$general-color: var(--general-color);
+$primary-color: var(--primary-color);
+$secondary-color: var(--secondary-color);
+
+$width-page: var(--width-page);
+$height-page: var(--height-page);
+
+
+/* Если подключаем шрифт, то оставляем */
+// @font-face {
+//     font-family: "*название*"; /* Название шрифта */
+//     font-style: normal;
+//     font-weight: 400;
+//     /* Браузер сначала попробует найти шрифт локально */
+//     src: local("*название*"),
+//          /* Если не получилось, загрузит TTF format("TTF") */
+//          url("/fonts/*шрифт*.TTF"),
+//          /* Если не получилось, вернёт всё в "Arial" локально */
+//          local("Arial");
+// }
+
+
+/* СТИЛИ СТРАНИЦЫ */
+
+body {
+    background-color: var(--body-color);
+        
+    // background-image: url();
+    // background-position: center;
+    // background-repeat: no-repeat;
+    // background-attachment: fixed/scroll;
+    // background-size: cover/contain; 
+
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 1.2;
+    font-display: swap; /* use "swap" (better) or use "optional", also exist "fallback" (100ms waiting and hav'nt refresh), not use "auto" and "block". */
+
+    /* identical to box height */
+    letter-spacing: 0.03em;
+
+    color: var(--text-color);
+    cursor: default;
+    user-select: none;
+
+    
+    // Скроллинг сайта.
+    // Auto. Стоит по умолчанию. 
+    // Smooth. Плавный переход.
+    // Instant. Быстрый переход. 
+    scroll-behavior: smooth;
+}
+
+/*Маркер списка и сброс*/
+
+.mark, li {
+    list-style: none;
+}
+
+.none {
+    display: none;
+}
+
+a {
+    list-style: none;
+    text-decoration: none;
+    color: var(--text-color);
+}
+
+p, h1, h2, h3, ul, li {
+    padding: 0px;
+    margin: 0px;
+    cursor: default;
+}
+
+/*Основное содержание*/

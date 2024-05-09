@@ -1,0 +1,32 @@
+/* Fonts */
+
+@font-face {
+    font-family: "Sixtyfour Regular";
+    /* Название шрифта */
+    font-style: normal;
+    font-weight: 400;
+    /* Браузер сначала попробует найти шрифт локально */
+    src: local("Sixtyfour Regular"),
+        /* Если не получилось, загрузит TTF format("TTF") */
+        url("/fonts/Sixtyfour Regular.TTF"),
+        /* Если не получилось, вернёт всё в "Arial" локально */
+        local("Arial");
+}
+
+@font-face {
+    font-family: "Iceland";
+    /* Название шрифта */
+    font-style: normal;
+    font-weight: 400;
+    /* Браузер сначала попробует найти шрифт локально */
+    src: local("Iceland"),
+        /* Если не получилось, загрузит TTF format("TTF") */
+        url("/fonts/Iceland-Regular.ttf"),
+        /* Если не получилось, вернёт всё в "Arial" локально */
+        local("Arial");
+}
+
+.time {
+    font-size: 28px;
+    font-family: Sixtyfour Regular, Evenly, sans-serif;
+}

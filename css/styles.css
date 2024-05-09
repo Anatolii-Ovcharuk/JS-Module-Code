@@ -1,0 +1,86 @@
+:root {
+    --body-color: ;
+    --link-color: ;
+    --select-color: ;
+    --hover-color: ;
+    --focus-color: ;
+    --header-color: ;
+    --text-color: ;
+    --title-color: ;
+    --button-color: ;
+    --icon-color: ;
+    
+    --primary-color: ;
+    --secondary-color: ;
+
+    --width-page: ;
+}
+
+/* Если подключаем шрифт, то оставляем */
+@font-face {
+    font-family: "*название*"; /* Название шрифта */
+    font-style: normal;
+    font-weight: 400;
+    /* Браузер сначала попробует найти шрифт локально */
+    src: local("*название*"),
+         /* Если не получилось, загрузит TTF format("TTF") */
+         url("/fonts/*шрифт*.TTF"),
+         /* Если не получилось, вернёт всё в "Arial" локально */
+         local("Arial");
+}
+
+/* СТИЛИ СТРАНИЦЫ */
+
+body {
+    background-color: var(--body-color);
+
+    /*
+    background-image: url();
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed/scroll;
+    background-size: cover/contain; */
+
+
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 1.2;
+
+    /* identical to box height */
+    letter-spacing: 0.03em;
+
+    color: var(--text-color);
+    cursor: default;
+    user-select: none;
+
+    /* Скроллинг сайта.
+     Auto. Стоит по умолчанию. 
+     Smooth. Плавный переход.
+     Instant. Быстрый переход. */ 
+    scroll-behavior: smooth;
+}
+
+/*Маркер списка и сброс*/
+
+.mark, li {
+    list-style: none;
+}
+
+.none {
+    display: none;
+}
+
+a {
+    list-style: none;
+    text-decoration: none;
+    color: var(--text-color);
+}
+
+p, h1, h2, h3, ul, li {
+    padding: 0px;
+    margin: 0px;
+    cursor: default;
+}
+
+/*Основное содержание*/
