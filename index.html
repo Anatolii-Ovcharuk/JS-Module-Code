@@ -135,11 +135,28 @@ body {
     background-color: #dadada;
     color: var(--text-color);
     font-family: Arial, Helvetica, sans-serif;
+
+    transition: background-color linear 250ms;
 }
 
 header, main, footer {
     opacity: 0;
     transition: linear 500ms opacity;
+}
+
+/* Fonts */
+
+@font-face {
+    font-family: "Sixtyfour Regular";
+    /* Название шрифта */
+    font-style: normal;
+    font-weight: 400;
+    /* Браузер сначала попробует найти шрифт локально */
+    src: local("Sixtyfour Regular"),
+        /* Если не получилось, загрузит TTF format("TTF") */
+        url("./fonts/Sixtyfour Regular.TTF"),
+        /* Если не получилось, вернёт всё в "Arial" локально */
+        local("Arial");
 }
     /* PRELOADING STYLE  */
 
@@ -150,7 +167,7 @@ header, main, footer {
     transform: translate(-50%, -50%);
 
 
-    color: #252525;
+    color: var(--text-color);
 
     display: flex;
     flex-direction: column;
@@ -177,7 +194,7 @@ header, main, footer {
     opacity: 1;
     transition: linear 500ms opacity;
 
-    /*  */
+    /* Default */
     cursor: default;
     user-select: none;
     z-index: -3;
@@ -244,11 +261,11 @@ header, main, footer {
 
 /* Mozilla */
 
-::-moz-progress-bar {
+.preload__progress::-moz-progress-bar {
     background-color: #909090;
 }
 
-:indeterminate::-moz-progress-bar {
+.preload__progress:indeterminate::-moz-progress-bar {
     width: 10px;
 }
 
@@ -264,16 +281,16 @@ header, main, footer {
     -webkit-appearance: none;
 }
 
-::-webkit-progress-inner-element {
+.preload__progress::-webkit-progress-inner-element {
     padding: 1px;
     border: 0px;
 }
 
-::-webkit-progress-bar {
+.preload__progress::-webkit-progress-bar {
     background-color: #dadada;
 }
 
-::-webkit-progress-value {
+.preload__progress::-webkit-progress-value {
     background-color: #8585ff;
 }
     </style>
@@ -290,45 +307,77 @@ header, main, footer {
         <p class="preload__status" preload__status id="preload__status">Loading...</p>
     </div>
     <header id="header">
-        <h2 style="text-align: center;padding: 10px;">Console:</h2>
-        <pre style="display: block;margin: 10px auto;padding: 10px;width: 75%;height: 100px;box-shadow: inset 0px 0px 10px rgba(0,0,0,0.5);"></pre>
+        <h2 style="text-align: center;padding-top: 10px;font-size: 22px;">"JS Module Code"</h2>
+        <p style="text-align: center;padding: 10px;font-size: 16px;">Console:</p>
+        <pre id="console" style="display: block;margin: 10px auto;padding: 10px;width: 75%;height: 100px;box-shadow: inset 0px 0px 10px rgba(0,0,0,0.5);overflow: auto;scrollbar-color: #0066FF #353535;scrollbar-width: thin;user-select: text;"></pre>
     </header>
     <main id="main">
         <section class="section">
-            <h2 class="section__name">Name Script: Current Date Module</h2>
+            <h3 class="section__name">Name Script: Current Date Module</h3>
             <p class="section__text time" id="time" time></p>
             <p class="section__text" id="date"></p>
         </section>
         <section class="section">
-            <h2 class="section__name">Name Script: IP Info Module </h2>
+            <h3 class="section__name">Name Script: IP Info Module </h3>
             <p class="section__text ip" id="ip" ip></p>
+            <div class="client__info" id="client__info" client__info></div>
         </section>
         <section class="section">
-            <h2 class="section__name">Name Script: Visit and time loading counter module</h2>
+            <h3 class="section__name">Name Script: Visit and time loading counter module</h3>
             <p class="section__text visit" id="visit" visit></p>
-            <button class="counter-reset" id="counter-reset" counter-reset href="" type="button" aria-label="Reset counter"><svg
-                    class="counter-reset__icon">
-                    <use href="../../img/svg/sprite.svg#reset"></use></svg>
-                <p class="counter-reset__text">Reset counter</p>
-            </button>
+            <div style="display: flex;align-items: center;justify-content: center;flex-wrap: nowrap;">
+                <button class="counter-reset" id="counter-reset" counter-reset href="" type="button" aria-label="Reset counter"><svg
+                        class="counter-reset__icon">
+                        <use href="./img/svg/sprite.svg#account_circle"></use>
+                    </svg>
+                    <p class="counter-reset__text">Reset counter</p>
+                </button>
+                <button type="button"  onclick="location.reload()" aria-label="Refresh page">
+                    <svg><use href="./img/svg/sprite.svg#reset"></use></svg>
+                    <p class="counter-reset__text">Refresh page</p>
+                </button>
+            </div>
             </section>
         </section>
         <section class="section">
-            <h2 class="section__name">Name Script: Theme Module</h2>
-            <button class="theme" id="theme" href="" type="button" aria-label="change background theme on page" theme>
-                <svg class="theme__icon"><use href="./img/svg/sprite.svg#light"></use></svg>
-                <svg class="theme__icon"><use href="./img/svg/sprite.svg#moon"></use></svg>
-                <p class="footer__menu__button-theme__txt">Change Theme</p>
-            </button>
-        </section>
-        <!-- <section class="section">
-            <h2 class="section__name">Name Script:</h2>
-            <p class="section__text"></p>
+            <h3 class="section__name">Name Script: Theme Module</h3>
+            <div style="display: flex;align-items: center;justify-content: center;flex-wrap: nowrap;">
+                <button class="theme" id="theme" href="" type="button" aria-label="change background theme on page" theme>
+                    <svg class="theme__icon"><use href="./img/svg/sprite.svg#light"></use></svg>
+                    <svg class="theme__icon"><use href="./img/svg/sprite.svg#moon"></use></svg>
+                    <p class="footer__menu__button-theme__txt">Change Theme</p>
+                </button>
+                <button class="lp" id="lp" href="" type="button" aria-label="loop play/pause theme" lp>
+                    <svg class="theme__icon"><use href="./img/svg/sprite.svg#play"></use></svg>
+                    <svg class="theme__icon"><use href="./img/svg/sprite.svg#pause"></use></svg>
+                    <p class="footer__menu__button-theme__txt">Loop play/pause Theme</p>
+                </button>
+            </div>
+            <div style="display: flex;align-items: center;justify-content: center;flex-wrap: nowrap;">
+                <button type="button"  onclick="if (confirm('Are you realy to refresh this page ?')) {window.location.reload();}" aria-label="refresh page">
+                    <svg><use href="./img/svg/sprite.svg#reset"></use></svg>
+                    <p class="counter-reset__text">Refresh page</p>
+                </button>
+            </div>
         </section>
         <section class="section">
-            <h2 class="section__name">Name Script:</h2>
+            <h3 class="section__name">Name Script: Generator numbers</h3>
+            <p class="section__text"></p>
+            <form>
+            <label for="startNumbers">Start Number:</label>
+            <input id="startNumbers" type="text" placeholder="START Number" type="number" />
+            <label for="endNumbers">End Number:</label>
+            <input id="endNumbers" type="text" placeholder="END Number" type="number" />
+            <button id="generateNumbers" href="" type="button" aria-label="Reset counter"><p>Start Generate</p></button>
+            <progress id="generateProgress" style="width: 200px;"></progress>
+            </form>
+        </section>
+
+        <!-- <section class="section">
+            <h3 class="section__name">Name Script:</h3>
             <p class="section__text"></p>
         </section> -->
+
     </main>
     <footer id="footer">
 <a class="link" href="https://github.com/Anatolii-Ovcharuk" target="_blank"><svg class="menu__link__icon"><use href="./img/svg/sprite.svg#github"></use></svg><p>Looking account on GitHub</p></a>
@@ -341,7 +390,8 @@ header, main, footer {
         // Console Log in HTML SCRIPT
         console._log = console.log;
         console.log = function () {
-            document.querySelector('pre').innerText = arguments[0];
+            // document.body.querySelector('pre').innerText = arguments[0];
+            document.getElementById('console').innerText = arguments[0];
             console._log.apply(null, arguments);
         }
 
@@ -402,7 +452,7 @@ header, main, footer {
                 refs.pre_pro.value = 20;
                 refs.pre_stat.innerHTML = "Loading - Info Module..."
             </script>
-        <script src="./js/ip_info_module_v.1.1.js" type="module"></script>
+        <script src="./js/ip_info_module_v.1.2.js" type="module"></script>
 
             <script>
                 // PRELOADING SCRIPT
@@ -411,7 +461,7 @@ header, main, footer {
                 refs.pre_pro.value = 30;
                 refs.pre_stat.innerHTML = "Loading - Counter module..."
             </script>
-        <script src="./js/visit_and_time_loading_counter_module_v.1.2.js" type="module"></script>
+        <script src="./js/visit_and_time_loading_counter_module_v.1.3.js" type="module"></script>
 
             <script>
                 // PRELOADING SCRIPT
@@ -420,7 +470,16 @@ header, main, footer {
                 refs.pre_pro.value = 40;
                 refs.pre_stat.innerHTML = "Loading - Theme Module..."
             </script>
-        <script src="./js/theme_module_v.1.1.js" type="module"></script>
+        <script src="./js/theme_module_v.1.2.js" type="module"></script>
+
+            <script>
+                // PRELOADING SCRIPT
+                // Default
+                refs.pre_amm.innerHTML = "50%";
+                refs.pre_pro.value = 50;
+                refs.pre_stat.innerHTML = "Loading - Generator Numbers..."
+            </script>
+            <script src="./js/generator_numbers_v.1.0.js" type="module"></script>
 
     <script>
     // PRELOADING SCRIPT

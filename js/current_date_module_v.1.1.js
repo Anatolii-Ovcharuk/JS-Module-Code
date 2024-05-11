@@ -1,5 +1,8 @@
 /* "Current date module", v. 1.1 - 15.04.2024 | MIT License | Made by Anatolii Ovcharuk */
+
+    /* INSTALLATION */
 /* Use this line in HTML for include: <script src="./js/current_date_module.js" type="module"></script> */
+
 // "use strict"; /* That's Strict mode;  ⛔ DONT USE OTHER CODE WITH THIS IS STRICT, IF YOUR ALL CODE NOT "USE STRICT" OR TYPE="MODULE"... */
 
 

@@ -8,7 +8,7 @@
     /* Браузер сначала попробует найти шрифт локально */
     src: local("Sixtyfour Regular"),
         /* Если не получилось, загрузит TTF format("TTF") */
-        url("/fonts/Sixtyfour Regular.TTF"),
+        url("./fonts/Sixtyfour Regular.TTF"),
         /* Если не получилось, вернёт всё в "Arial" локально */
         local("Arial");
 }
@@ -21,7 +21,7 @@
     /* Браузер сначала попробует найти шрифт локально */
     src: local("Iceland"),
         /* Если не получилось, загрузит TTF format("TTF") */
-        url("/fonts/Iceland-Regular.ttf"),
+        url("./fonts/Iceland-Regular.ttf"),
         /* Если не получилось, вернёт всё в "Arial" локально */
         local("Arial");
 }

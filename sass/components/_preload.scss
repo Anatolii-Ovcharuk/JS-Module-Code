@@ -12,7 +12,7 @@ header, main, footer {
     transform: translate(-50%, -50%);
 
 
-    color: #252525;
+    color: var(--text-color);
 
     display: flex;
     flex-direction: column;
@@ -39,7 +39,7 @@ header, main, footer {
     opacity: 1;
     transition: linear 500ms opacity;
 
-    /*  */
+    /* Default */
     cursor: default;
     user-select: none;
     z-index: -3;
@@ -106,11 +106,11 @@ header, main, footer {
 
 /* Mozilla */
 
-::-moz-progress-bar {
+.preload__progress::-moz-progress-bar {
     background-color: #909090;
 }
 
-:indeterminate::-moz-progress-bar {
+.preload__progress:indeterminate::-moz-progress-bar {
     width: 10px;
 }
 
@@ -126,15 +126,15 @@ header, main, footer {
     -webkit-appearance: none;
 }
 
-::-webkit-progress-inner-element {
+.preload__progress::-webkit-progress-inner-element {
     padding: 1px;
     border: 0px;
 }
 
-::-webkit-progress-bar {
+.preload__progress::-webkit-progress-bar {
     background-color: #dadada;
 }
 
-::-webkit-progress-value {
+.preload__progress::-webkit-progress-value {
     background-color: #8585ff;
 }

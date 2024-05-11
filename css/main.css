@@ -2,7 +2,7 @@
 /* ПЕРЕМЕННЫЕ CSS */
 :root {
   --body-color: #dadada;
-  --button-color: ;
+  --button-color: #ce3636;
   --link-color: ;
   --select-color: ;
   --hover-color: ;
@@ -67,7 +67,7 @@ p, h1, h2, h3, ul, li {
   font-style: normal;
   font-weight: 400;
   /* Браузер сначала попробует найти шрифт локально */
-  src: local("Sixtyfour Regular"), url("/fonts/Sixtyfour Regular.TTF"), local("Arial");
+  src: local("Sixtyfour Regular"), url("./fonts/Sixtyfour Regular.TTF"), local("Arial");
 }
 @font-face {
   font-family: "Iceland";
@@ -75,7 +75,7 @@ p, h1, h2, h3, ul, li {
   font-style: normal;
   font-weight: 400;
   /* Браузер сначала попробует найти шрифт локально */
-  src: local("Iceland"), url("/fonts/Iceland-Regular.ttf"), local("Arial");
+  src: local("Iceland"), url("./fonts/Iceland-Regular.ttf"), local("Arial");
 }
 .time {
   font-size: 28px;
@@ -93,6 +93,7 @@ footer .link {
   display: flex;
   justify-content: center;
   align-items: center;
+  color: inherit;
   margin: 10px;
   padding: 10px;
 }
@@ -100,8 +101,10 @@ footer .link svg {
   width: 32px;
   height: 32px;
   margin: 10px;
+  fill: inherit;
 }
 footer .link p {
+  color: inherit;
   cursor: inherit;
   font-size: 20px;
 }
@@ -117,7 +120,7 @@ header, main, footer {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  color: #252525;
+  color: var(--text-color);
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -135,7 +138,7 @@ header, main, footer {
   /* Animation block */
   opacity: 1;
   transition: linear 500ms opacity;
-  /*  */
+  /* Default */
   cursor: default;
   -webkit-user-select: none;
      -moz-user-select: none;
@@ -195,11 +198,11 @@ header, main, footer {
 }
 
 /* Mozilla */
-::-moz-progress-bar {
+.preload__progress::-moz-progress-bar {
   background-color: #909090;
 }
 
-:indeterminate::-moz-progress-bar {
+.preload__progress:indeterminate::-moz-progress-bar {
   width: 10px;
 }
 
@@ -213,16 +216,16 @@ header, main, footer {
   -webkit-appearance: none;
 }
 
-::-webkit-progress-inner-element {
+.preload__progress::-webkit-progress-inner-element {
   padding: 1px;
   border: 0px;
 }
 
-::-webkit-progress-bar {
+.preload__progress::-webkit-progress-bar {
   background-color: #dadada;
 }
 
-::-webkit-progress-value {
+.preload__progress::-webkit-progress-value {
   background-color: #8585ff;
 }
 
@@ -242,25 +245,56 @@ main .section {
   border-radius: 15px;
   box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14), 0px 2px 1px rgba(0, 0, 0, 0.2), 0px 1px 2px rgba(0, 0, 0, 0.2), -1px 2px 4px 3px rgba(0, 0, 0, 0.75);
 }
-main .section h2, main .section .section__text {
+main .section .section__text {
   margin: 6px;
+}
+main .section h3 {
+  margin: 6px;
+  font-size: 18px;
 }
 main .section button {
   cursor: pointer;
-  width: 200px;
+  fill: var(--text-color);
+  color: var(--text-color);
+  background-color: var(--button-color);
+  border-radius: 5px;
+  border: 0px;
+  transition: box-shadow linear 250ms;
+  width: 120px;
   height: 100px;
   margin: 10px;
   padding: 10px;
 }
 main .section button svg {
   margin: 10px;
-  width: 32px;
-  height: 32px;
+  width: 24px;
+  height: 24px;
   cursor: inherit;
 }
 main .section button p {
-  font-size: 18px;
+  font-size: 14px;
+  font-variant: small-caps;
+  font-weight: 600;
   cursor: inherit;
+}
+main .section button:hover {
+  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14), 0px 2px 1px rgba(0, 0, 0, 0.2), 0px 1px 2px rgba(0, 0, 0, 0.2), -1px 2px 4px 3px rgba(0, 0, 0, 0.75);
+}
+main .section button:active {
+  box-shadow: inset 0px 1px 10px rgba(0, 0, 0, 0.7);
+}
+main .section form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 5px;
+}
+main .section form input {
+  width: 150px;
+}
+main .section form label {
+  width: 95px;
 }
 
 /* modern-normalize v1.1.0 | MIT License | https://github.com/sindresorhus/modern-normalize */
