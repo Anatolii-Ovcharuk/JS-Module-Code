@@ -53,4 +53,3 @@ function generateNumbers() {
         refs.generateProgress.max = 0;
     }, 3000);
 };
-

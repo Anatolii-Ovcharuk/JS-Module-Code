@@ -121,6 +121,7 @@ header, main, footer {
   left: 50%;
   transform: translate(-50%, -50%);
   color: var(--text-color);
+  fill: var(--text-color);
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -148,7 +149,7 @@ header, main, footer {
 }
 
 .preload__logo {
-  fill: var(--logo-color);
+  fill: inherit;
   width: 64px;
   height: 64px;
   padding: 0px;
@@ -266,13 +267,13 @@ main .section button {
   padding: 10px;
 }
 main .section button svg {
-  margin: 10px;
-  width: 24px;
-  height: 24px;
+  margin: 3px;
+  width: 22px;
+  height: 22px;
   cursor: inherit;
 }
 main .section button p {
-  font-size: 14px;
+  font-size: 13px;
   font-variant: small-caps;
   font-weight: 600;
   cursor: inherit;
@@ -295,6 +296,24 @@ main .section form input {
 }
 main .section form label {
   width: 95px;
+}
+
+.section .choice_color {
+  width: 120px;
+  height: 100px;
+  padding: 1px;
+  border: 1px solid var(--text-color);
+  border-radius: 5px;
+}
+.section .choice_color input {
+  margin: 2px;
+  padding: 1px;
+  width: 15px;
+  height: 15px;
+}
+.section .choice_color label {
+  margin: 0px;
+  font-size: 9px;
 }
 
 /* modern-normalize v1.1.0 | MIT License | https://github.com/sindresorhus/modern-normalize */

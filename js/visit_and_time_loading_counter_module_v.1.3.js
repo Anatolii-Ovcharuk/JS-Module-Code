@@ -1,4 +1,4 @@
-/* "Visit and time loading counter module", v. 1.3 - 11.05.2024 | MIT License | Made by Anatolii Ovcharuk */
+/* "Visit and time loading counter module", v. 1.4 - 13.05.2024 | MIT License | Made by Anatolii Ovcharuk */
 
     /* INSTALLATION */
 /* Use this line in HTML for include: <script src="./js/visit_and_time_loading_counter_module.js" type="module"></script> */
@@ -19,8 +19,11 @@ let visitCount = 0;
 let totalTimeLoadPage = 0;
 let resultTimeLoadPage = 0;
 
+/* Old versions "IF (***)" */
+// (localStorage.length >= 1)
+// (localStorage.key(0) === "totalTimeLoadPage" && localStorage.key(1) === "visitCount")
 
-if (localStorage.key(0) === "totalTimeLoadPage" && localStorage.key(1) === "visitCount") { // localStorage.length >= 1
+if (localStorage.hasOwnProperty("totalTimeLoadPage") && localStorage.hasOwnProperty("visitCount")) { 
     visitCount = localStorage.getItem("visitCount");
     visitCount = Number.parseFloat(visitCount);
     totalTimeLoadPage = localStorage.getItem("totalTimeLoadPage");

@@ -129,10 +129,11 @@ summary {display: list-item}
 
 :root {
     --text-color: #252525;
+    --body-color: #dadada;
 }
 
 body {
-    background-color: #dadada;
+    background-color: var(--body-color);
     color: var(--text-color);
     font-family: Arial, Helvetica, sans-serif;
 
@@ -168,13 +169,14 @@ header, main, footer {
 
 
     color: var(--text-color);
+    fill: var(--text-color);
 
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     gap: 10px;
-    
+
     width: 335px;
     height: 335px;
 
@@ -202,7 +204,7 @@ header, main, footer {
 }
 
 .preload__logo {
-    fill: var(--logo-color);
+    fill: inherit;
     width: 64px;
     height: 64px;
 
@@ -354,9 +356,15 @@ header, main, footer {
                 </button>
             </div>
             <div style="display: flex;align-items: center;justify-content: center;flex-wrap: nowrap;">
-                <button type="button"  onclick="if (confirm('Are you realy to refresh this page ?')) {window.location.reload();}" aria-label="refresh page">
+                <form class="choice_color">
+                    <label for="choice_background" >Choice color for background:</label>
+                    <input class="choice_background" id="choice_background" type="color" choice_background>
+                    <label for="choice_font">Choice color for font:</label>
+                    <input class="choice_font" id="choice_font" type="color" choice_font>
+                </form>
+                <button type="button"  onclick="if (confirm('Are you realy want to refresh this page and clean local storage ?')) {localStorage.clear(); window.location.reload();}" aria-label="refresh page">
                     <svg><use href="./img/svg/sprite.svg#reset"></use></svg>
-                    <p class="counter-reset__text">Refresh page</p>
+                    <p class="counter-reset__text">Refresh page and delete local storage</p>
                 </button>
             </div>
         </section>
@@ -470,7 +478,7 @@ header, main, footer {
                 refs.pre_pro.value = 40;
                 refs.pre_stat.innerHTML = "Loading - Theme Module..."
             </script>
-        <script src="./js/theme_module_v.1.2.js" type="module"></script>
+        <script src="./js/theme_module_v.1.3.js" type="module"></script>
 
             <script>
                 // PRELOADING SCRIPT

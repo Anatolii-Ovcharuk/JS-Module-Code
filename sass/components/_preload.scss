@@ -13,6 +13,7 @@ header, main, footer {
 
 
     color: var(--text-color);
+    fill: var(--text-color);
 
     display: flex;
     flex-direction: column;
@@ -47,7 +48,7 @@ header, main, footer {
 }
 
 .preload__logo {
-    fill: var(--logo-color);
+    fill: inherit;
     width: 64px;
     height: 64px;
 
