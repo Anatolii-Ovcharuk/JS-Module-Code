@@ -124,6 +124,9 @@ document.getElementById("ip").innerHTML = info; /* HTML by ID */
 
 initializateIP();
 
+
+    /* CODE FOR INFO ABOUT USER */
+    
 /* SELECT ONLY ONE STRING */
 // const clientInfo = document.body.querySelector('.client__info'); /* HTML by property CSS */
 // const clientInfo = document.body.querySelector('[client__info]'); /* HTML by attribute */
