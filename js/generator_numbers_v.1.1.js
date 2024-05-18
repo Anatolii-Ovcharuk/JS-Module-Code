@@ -1,4 +1,4 @@
-/* "Generator numbers", v. 1.1 - 16.05.2024 | MIT License | Made by Anatolii Ovcharuk */
+/* "Generator numbers", v. 1.1 - 17.05.2024 | MIT License | Made by Anatolii Ovcharuk */
 
     /* INSTALLATION */
 /* Use this line in HTML for include: <script src="./js/generator_numbers.js" type="module"></script> */
@@ -56,7 +56,7 @@ refs.generateNumbers.addEventListener('click', generateNumbers);
 
 function generateNumbers() {
     if (!document.body.querySelector(`input[type="radio"][name="split"]:checked`)) {
-    alert(`Choice only one option to split number's for continue.`);
+    alert(`⚠ Choice only one option to split number's for continue.`);
     }
 
     console.log("Initializate generating...")
@@ -67,8 +67,8 @@ function generateNumbers() {
     let numbers = [];
 
     if (Number.isNaN(startNumbers) || Number.isNaN(endNumbers)) {
-        console.log("ERROR. Please, write only numbers.");
-        alert("Please, write only numbers.");
+        console.log("⚠ ERROR. Please, write only numbers.");
+        alert("⚠ Please, write only numbers.");
         return
     }
             
@@ -105,5 +105,5 @@ function generateNumbers() {
     }, 3000);
 
     const endTimeProcess = Date.now();
-    refs.gspt.innerHTML = `Time to end process: ${((endTimeProcess - startTimeProcess) / 1000).toFixed(3)} sec.`; /* Version 1 */
+    refs.gspt.innerHTML = `Time to end process: ${((endTimeProcess - startTimeProcess) / 1000).toFixed(3)} sec.`;
 };

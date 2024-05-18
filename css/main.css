@@ -325,6 +325,8 @@ main .section .field__radio {
 }
 main .section .field__radio input {
   width: 40px;
+  height: 11px;
+  cursor: pointer;
 }
 main .section .field__radio input:checked {
   border: 6px solid black;

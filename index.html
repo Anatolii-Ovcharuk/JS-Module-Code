@@ -353,7 +353,7 @@ header, main, footer {
                 <button class="lp" id="lp" href="" type="button" aria-label="loop play/pause theme" lp>
                     <svg class="theme__icon"><use href="./img/svg/sprite.svg#play"></use></svg>
                     <svg class="theme__icon"><use href="./img/svg/sprite.svg#pause"></use></svg>
-                    <p class="footer__menu__button-theme__txt">Loop play/pause Theme</p>
+                    <p>Play/pause loop Theme</p>
                 </button>
             </div>
             <div style="display: flex;align-items: center;justify-content: center;flex-wrap: nowrap;">
@@ -394,6 +394,20 @@ header, main, footer {
             <progress id="generateProgress" style="width: 200px;"></progress>
             </form>
             <p id="generateStatProgressTime" style="text-align: center;margin: 5px;font-size: 14px;" >Time to end process: 0 sec.</p>
+        </section>
+
+        <section class="section">
+            <h3 class="section__name">Name Script: Audio module</h3>
+            <button class="music__loop" id="music__loop" music__loop href="" type="button" aria-label="stop/start loop music">
+                    <svg class="theme__icon"><use href="./img/svg/sprite.svg#play"></use></svg>
+                    <svg class="theme__icon"><use href="./img/svg/sprite.svg#pause"></use></svg>
+                    <p>Play/pause loop Music</p>
+            </button>
+            <audio class="audio__loop" id="audio__loop" audio__loop data-status="play" src="./audio/ogg/loop-112_eq_cut.ogg" loop>
+                <source src="./audio/ogg/loop-112_eq_cut.ogg" type="audio/ogg; codecs=vorbis" />
+                <source src="./audio/mp3/loop-112_eq_cut.mp3" type="audio/mpeg" />
+                <source src="./audio/wav/loop-112_eq_cut.wav" type="audio/wav" />
+            </audio>
         </section>
 
         <!-- <section class="section">
@@ -498,7 +512,7 @@ header, main, footer {
                 refs.pre_pro.value = 40;
                 refs.pre_stat.innerHTML = "Loading - Theme Module..."
             </script>
-        <script src="./js/theme_module_v.1.3.js" type="module"></script>
+        <script src="./js/theme_module_v.1.4.js" type="module"></script>
 
             <script>
                 // PRELOADING SCRIPT
@@ -508,6 +522,15 @@ header, main, footer {
                 refs.pre_stat.innerHTML = "Loading - Generator Numbers..."
             </script>
             <script src="./js/generator_numbers_v.1.1.js" type="module"></script>
+
+            <script>
+                // PRELOADING SCRIPT
+                // Default
+                refs.pre_amm.innerHTML = "60%";
+                refs.pre_pro.value = 60;
+                refs.pre_stat.innerHTML = "Loading - Audio module..."
+            </script>
+            <script src="./js/audio_loop_module_v.1.0.js" type="module"></script>
 
     <script>
     // PRELOADING SCRIPT - END

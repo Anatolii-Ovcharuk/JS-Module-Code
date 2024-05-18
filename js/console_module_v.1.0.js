@@ -1,7 +1,7 @@
 /* "Console module", v. 1.0 - 16.05.2024 | MIT License | Made by Anatolii Ovcharuk */
 
     /* INSTALLATION */
-/* Use this line in HTML for include: <script src="./js/console_module_v.1.0.js" type="module"></script> */
+/* Use this line in HTML for include: <script src="./js/console_module.js" type="module"></script> */
 /* Use this line in HTML for include form:  
     <section>
         <p style="text-align: center;padding: 10px;font-size: 16px;">Console:</p>
