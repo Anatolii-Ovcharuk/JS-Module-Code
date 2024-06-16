@@ -41,7 +41,7 @@ function runGenId() {
     // console.log(`Total generate numbers: ${i}`);    
     
     const year = (new Date).getFullYear().toString();
-    let month = (new Date).getMonth().toString();
+    let month = ((new Date).getMonth() + 1).toString();
     const date = (new Date).getDate().toString();
         
     if (month.length === 1) {
