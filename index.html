@@ -410,6 +410,41 @@ header, main, footer {
             </audio>
         </section>
 
+        <section class="section">
+            <h3 class="section__name">Name Script: Generator ID module</h3>
+            <button class="generate_id" id="generate_id" generate_id href="" type="button" aria-label="Start generate ID">
+                    <p>Start Generate ID</p>
+            </button>
+            <fieldset style="display: flex;justify-content: center;align-items: center;flex-wrap: nowrap;flex-direction: row;font-size: 14px;padding: 1px;">
+                <legend>ID Number:</legend>
+                <p style="text-align: center;" randomId></p>
+            </fieldset>
+            <fieldset
+                style="display: flex;justify-content: center;align-items: center;flex-wrap: nowrap;flex-direction: row;font-size: 9px;padding: 1px;">
+                <legend>ID Description:</legend>
+                <fieldset id="fieldsetGen" style="padding: 2px;">
+                    <legend>Random Numbers:</legend>
+                    <p style="text-align: center;" randomIdNumbers></p>
+                </fieldset>
+                <fieldset id="fieldsetGen" style="padding: 2px;">
+                    <legend>Random Letter:</legend>
+                    <p style="text-align: center;" randomFirstLetterId></p>
+                </fieldset>
+                <fieldset id="fieldsetGen" style="padding: 2px;">
+                    <legend>Total-random numbers:</legend>
+                    <p style="text-align: center;" TotalGenNumId></p>
+                </fieldset>
+                <fieldset id="fieldsetGen" style="padding: 2px;">
+                    <legend>Random Letter:</legend>
+                    <p style="text-align: center;" randomSecondId></p>
+                </fieldset>
+                <fieldset id="fieldsetGen" style="padding: 2px;">
+                    <legend>Date numbers:</legend>
+                    <p style="text-align: center;" dateId></p>
+                </fieldset>
+            </fieldset>
+        </section>
+
         <!-- <section class="section">
             <h3 class="section__name">Name Script:</h3>
             <p class="section__text"></p>
@@ -526,11 +561,20 @@ header, main, footer {
             <script>
                 // PRELOADING SCRIPT
                 // Default
-                refs.pre_amm.innerHTML = "60%";
-                refs.pre_pro.value = 60;
+                refs.pre_amm.innerHTML = "55%";
+                refs.pre_pro.value = 55;
                 refs.pre_stat.innerHTML = "Loading - Audio module..."
             </script>
             <script src="./js/audio_loop_module_v.1.0.js" type="module"></script>
+
+            <script>
+                // PRELOADING SCRIPT
+                // Default
+                refs.pre_amm.innerHTML = "60%";
+                refs.pre_pro.value = 60;
+                refs.pre_stat.innerHTML = "Loading - Generator ID..."
+            </script>
+            <script src="./js/generator_id_v.1.0.js" type="module"></script>
 
     <script>
     // PRELOADING SCRIPT - END
