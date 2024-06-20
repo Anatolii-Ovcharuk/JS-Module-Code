@@ -1,4 +1,4 @@
-/* "Visit and time loading counter module", v. 1.4 - 13.05.2024 | MIT License | Made by Anatolii Ovcharuk */
+/* "Visit and time loading counter module", v. 1.4 - 13.05.2024 | MIT License | Made by Anatolii Ovcharuk - https://github.com/Anatolii-Ovcharuk */
 
     /* INSTALLATION */
 /* Use this line in HTML for include: <script src="./js/visit_and_time_loading_counter_module.js" type="module"></script> */

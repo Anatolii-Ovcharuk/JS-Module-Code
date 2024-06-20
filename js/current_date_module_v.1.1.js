@@ -1,4 +1,4 @@
-/* "Current date module", v. 1.1 - 15.04.2024 | MIT License | Made by Anatolii Ovcharuk */
+/* "Current date module", v. 1.1 - 15.04.2024 | MIT License | Made by Anatolii Ovcharuk - https://github.com/Anatolii-Ovcharuk */
 
     /* INSTALLATION */
 /* Use this line in HTML for include: <script src="./js/current_date_module.js" type="module"></script> */

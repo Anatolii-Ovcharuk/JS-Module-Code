@@ -1,4 +1,4 @@
-/* "Generator ID", v. 1.0 - 16.06.2024 | MIT License | Made by Anatolii Ovcharuk */
+/* "Generator ID", v. 1.0 - 16.06.2024 | MIT License | Made by Anatolii Ovcharuk - https://github.com/Anatolii-Ovcharuk */
 
     /* INSTALLATION */
 /* Use this line in HTML for include: <script src="./js/generator_id_v.1.0.js" type="module"></script> */

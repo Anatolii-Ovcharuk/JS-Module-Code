@@ -1,4 +1,4 @@
-/* "IP info module", v. 1.2 - 11.05.2024 | MIT License | Made by Anatolii Ovcharuk */
+/* "IP info module", v. 1.2 - 11.05.2024 | MIT License | Made by Anatolii Ovcharuk - https://github.com/Anatolii-Ovcharuk */
 
     /* INSTALLATION */
 /* Use this line in HTML for include: <script src="./js/ip_info_module.js" type="module"></script> */

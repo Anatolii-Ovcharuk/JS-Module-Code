@@ -1,4 +1,4 @@
-/* "Theme module", v. 1.4 - 17.05.2024 | MIT License | Made by Anatolii Ovcharuk */
+/* "Theme module", v. 1.4 - 17.05.2024 | MIT License | Made by Anatolii Ovcharuk - https://github.com/Anatolii-Ovcharuk */
 
     /* INSTALLATION */
 /* Use this line in HTML for include: <script src="./js/theme_module.js" type="module"></script> */
