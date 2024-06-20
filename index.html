@@ -372,7 +372,7 @@ header, main, footer {
         <section class="section">
             <h3 class="section__name">Name Script: Generator numbers</h3>
             <p class="section__text"></p>
-            <form>
+            <form class="genNum">
             <label for="startNumbers">Start Number:</label>
             <input id="startNumbers" type="number" placeholder="START Number" />
             <label for="endNumbers">End Number:</label>
@@ -412,9 +412,20 @@ header, main, footer {
 
         <section class="section">
             <h3 class="section__name">Name Script: Generator ID module</h3>
-            <button class="generate_id" id="generate_id" generate_id href="" type="button" aria-label="Start generate ID">
-                    <p>Start Generate ID</p>
-            </button>
+                <form id="genOptID" class="genOptID" genOptID>
+                    <fieldset id="fieldsetGen" class="field__genId">
+                        <legend>Options for generate:</legend>
+                        <input type="checkbox" id="optId" name="optId" />
+                        <label for="line">Enable options</label>
+                        <input type="checkbox" id="addDate" name="addDate" />
+                        <label for="line">Add Date</label>
+                        <label for="genNumbers">How much to generate numbers:</label>
+                        <input id="genNumbers" type="number" placeholder="Generate Numbers" min="0" max="12" />
+                    </fieldset>
+                    <button class="generate_id" id="generate_id" generate_id href="" type="submit" aria-label="Start generate ID">
+                        <p>Start Generate ID</p>
+                    </button>
+                </form>
             <fieldset style="display: flex;justify-content: center;align-items: center;flex-wrap: nowrap;flex-direction: row;font-size: 14px;padding: 1px;">
                 <legend>ID Number:</legend>
                 <p style="text-align: center;" randomId></p>
@@ -574,7 +585,7 @@ header, main, footer {
                 refs.pre_pro.value = 60;
                 refs.pre_stat.innerHTML = "Loading - Generator ID..."
             </script>
-            <script src="./js/generator_id_v.1.0.js" type="module"></script>
+            <script src="./js/generator_id_v.1.1.js" type="module"></script>
 
     <script>
     // PRELOADING SCRIPT - END
