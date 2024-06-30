@@ -28,6 +28,7 @@ main {
         & h3 {
             margin: 6px;
             font-size: 18px;
+            text-align: center;
         }
         
         & button {
@@ -181,4 +182,68 @@ main .section .field__radio {
     flex-direction: row;
 
     height: 120px;
+}
+
+fieldset {
+    & form.audio__player {
+
+        & select {
+            display: block;
+            width: 220px;
+            height: 60px;
+            margin: 6px auto;
+            font-size: 11px;
+            border: 1px solid #262626;
+            border-radius: 5px;
+            appearance: none;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            -ms-appearance: none;
+
+            & select:focus option:checked {
+                appearance: none;
+                -webkit-appearance: none;
+                -moz-appearance: none;
+                -ms-appearance: none;
+                    color: #000000; /* Цвет текста выбранной опции */
+                    background-color: #48c115; /* Цвет фона выбранной опции */
+                }
+
+            & option {
+                appearance: none;
+                -webkit-appearance: none;
+                -moz-appearance: none;
+                -ms-appearance: none;
+                    padding: 6px;
+                    margin: 2px;
+                }
+        }
+
+        & button {
+            width: 70px;
+            height: 25px;
+            font-size: 10px;
+            padding: 4px;
+            margin: 6px;
+            
+
+            & svg {
+                width: 13px;
+                height: 13px;
+            }
+        }
+
+        & .audio_option_container {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                flex-wrap: wrap;
+                flex-direction: row;
+                gap: 6px;
+
+                & .range_music, & .volume {
+                    width: 100px;
+                }
+            }
+    }
 }

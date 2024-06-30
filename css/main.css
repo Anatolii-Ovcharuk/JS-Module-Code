@@ -252,6 +252,7 @@ main .section .section__text {
 main .section h3 {
   margin: 6px;
   font-size: 18px;
+  text-align: center;
 }
 main .section button {
   cursor: pointer;
@@ -358,6 +359,58 @@ main .section .field__radio input:checked {
   flex-wrap: nowrap;
   flex-direction: row;
   height: 120px;
+}
+
+fieldset form.audio__player select {
+  display: block;
+  width: 220px;
+  height: 60px;
+  margin: 6px auto;
+  font-size: 11px;
+  border: 1px solid #262626;
+  border-radius: 5px;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  -ms-appearance: none;
+}
+fieldset form.audio__player select select:focus option:checked {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  -ms-appearance: none;
+  color: #000000; /* Цвет текста выбранной опции */
+  background-color: #48c115; /* Цвет фона выбранной опции */
+}
+fieldset form.audio__player select option {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  -ms-appearance: none;
+  padding: 6px;
+  margin: 2px;
+}
+fieldset form.audio__player button {
+  width: 70px;
+  height: 25px;
+  font-size: 10px;
+  padding: 4px;
+  margin: 6px;
+}
+fieldset form.audio__player button svg {
+  width: 13px;
+  height: 13px;
+}
+fieldset form.audio__player .audio_option_container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  flex-direction: row;
+  gap: 6px;
+}
+fieldset form.audio__player .audio_option_container .range_music, fieldset form.audio__player .audio_option_container .volume {
+  width: 100px;
 }
 
 /* modern-normalize v1.1.0 | MIT License | https://github.com/sindresorhus/modern-normalize */

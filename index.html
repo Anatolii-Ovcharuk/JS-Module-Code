@@ -311,7 +311,8 @@ header, main, footer {
     <header id="header">
         <h2 style="text-align: center;padding-top: 10px;font-size: 22px;">"JS Module Code"</h2>
         <p style="text-align: center;padding: 10px;font-size: 16px;">Console:</p>
-        <button class="copy" id="copy" copy href="" type="button" aria-label="Copy data" style="margin-left: 13%;padding: 2px 4px;border-radius: 5px;cursor: pointer;">Copy</button>
+        <button class="copyConsole" id="copyConsole" copyConsole href="" type="button" aria-label="Copy data" style="margin-left: 13%;padding: 2px 4px;border-radius: 5px;cursor: pointer;">Copy</button>
+        <button class="clearConsole" id="clearConsole" clearConsole href="" type="button" aria-label="Clear data" style="margin-left: 10px;padding: 2px 4px;border-radius: 5px;cursor: pointer;">Clear</button>
         <pre class="console" id="console" console style="display: block;margin: 10px auto;padding: 10px;width: 75%;height: 100px;box-shadow: inset 0px 0px 10px rgba(0,0,0,0.5);overflow: auto;scrollbar-color: #0066FF #353535;scrollbar-width: thin;user-select: text;"></pre>
     </header>
     <main id="main">
@@ -456,6 +457,65 @@ header, main, footer {
             </fieldset>
         </section>
 
+        <section class="section">
+            <h3 class="section__name">Name Script: Audio player module</h3>
+            <fieldset
+                style="display: flex;justify-content: center;align-items: center;flex-wrap: nowrap;flex-direction: row;font-size: 14px;padding: 1px;">
+                <legend>Audio player options</legend>
+                <form class="audio__player" id="audio__player" audio__player data-status="stop">
+                    <div class="audio_option_container">
+                        <button type="button" id="playPauseButton" aria-label="stop/start play music">
+                            <svg class="theme__icon">
+                                <use href="./img/svg/sprite.svg#play"></use>
+                            </svg>
+                            <svg class="theme__icon">
+                                <use href="./img/svg/sprite.svg#pause"></use>
+                            </svg>
+                        </button>
+                        <button type="button" id="previousButton" aria-label="previous play music">
+                            <p>Previous</p>
+                        </button>
+                        <button type="button" id="nextButton" aria-label="next play music">
+                            <p>Next</p>
+                        </button>
+                        <button type="button" id="autoplayButton" aria-label="Autoplay next music">
+                            <p>Autoplay</p>
+                        </button>
+                        <button type="button" id="loopButton" aria-label="loop music">
+                            <p>Loop</p>
+                            <!-- <svg>
+                                <use href="./img/svg/sprite.svg#reset"></use>
+                            </svg> -->
+                        </button>
+                    </div>
+                    <div class="audio_option_container">
+                        <label for="volume">Volume</label>
+                        <p id="value_volume" style="text-align: center;">50 %</p>
+                        <input type="range" class="volume" id="volume" name="volume" min="0" value="0.5" max="1" step="0.01" />
+                    </div>
+                    <div class="audio_option_container">
+                        <label for="range_music">Progress</label>
+                        <p id="progress" style="text-align: center;">00:00 / 00:00</p>
+                        <input type="range" class="range_music" id="range_music" name="range_music" value="0" step="1" />
+                    </div>
+                    <div class="audio_option_container">
+                        <input type="radio" id="stereo" name="channel" value="stereo" checked />
+                        <label for="stereo">Stereo</label>
+                        <input type="radio" id="mono" name="channel" value="mono" />
+                        <label for="mono">Mono</label>
+                    </div>
+                    <select class="songs" id="songs" size="2" name="select">
+                        <option value="./music/LoopyMusic.wav" selected>Test music</option>
+                        <option value="./music/nickelback-bottoms-up.mp3">Nickelback - Bottoms Up</option>
+                        <option value="./music/Joshua Loucka - Light that fuse vox.mp3">Joshua Loucka - Light that fuse vox
+                        </option>
+                    </select>
+                </form>
+            </fieldset>
+        </section>
+
+
+
         <!-- <section class="section">
             <h3 class="section__name">Name Script:</h3>
             <p class="section__text"></p>
@@ -484,7 +544,7 @@ header, main, footer {
             });
     </script>
 
-    <script src="./js/console_module_v.1.0.js" type="module"></script>
+    <script src="./js/console_module_v.1.1.js" type="module"></script>
 
     <script>
         // PRELOADING SCRIPT - START 
@@ -587,20 +647,34 @@ header, main, footer {
             </script>
             <script src="./js/generator_id_v.1.1.js" type="module"></script>
 
+            <script>
+                // PRELOADING SCRIPT
+                // Default
+                refs.pre_amm.innerHTML = "70%";
+                refs.pre_pro.value = 70;
+                refs.pre_stat.innerHTML = "Loading - Audio player..."
+            </script>
+            <script src="./js/audio_player_module_v.1.0.js" type="module"></script>
+
+
+    <script>
+
+    </script>
     <script>
     // PRELOADING SCRIPT - END
+    document.addEventListener('DOMContentLoaded', () => {
+        // Default
+        refs.pre_amm.innerHTML = "100%";
+        refs.pre_pro.value = 100;
+        refs.pre_stat.innerHTML = "Ready"
         // End animation
-        setTimeout(()=> {
+        setTimeout(() => {
             refs.pre.style.opacity = 0;
             elem.header.style.opacity = 1;
             elem.main.style.opacity = 1;
             elem.footer.style.opacity = 1;
         }, 1500)
-
-        // Default
-        refs.pre_amm.innerHTML = "100%";
-        refs.pre_pro.value = 100;
-        refs.pre_stat.innerHTML = "Ready"
+    });
     </script>
 </body>
 </html>
