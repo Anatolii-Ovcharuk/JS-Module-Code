@@ -361,7 +361,7 @@ main .section .field__radio input:checked {
   height: 120px;
 }
 
-fieldset form.audio__player select {
+#body #main fieldset form.audio__player select {
   display: block;
   width: 220px;
   height: 60px;
@@ -374,7 +374,7 @@ fieldset form.audio__player select {
   -moz-appearance: none;
   -ms-appearance: none;
 }
-fieldset form.audio__player select select:focus option:checked {
+#body #main fieldset form.audio__player select select:focus option:checked {
   appearance: none;
   -webkit-appearance: none;
   -moz-appearance: none;
@@ -382,7 +382,7 @@ fieldset form.audio__player select select:focus option:checked {
   color: #000000; /* Цвет текста выбранной опции */
   background-color: #48c115; /* Цвет фона выбранной опции */
 }
-fieldset form.audio__player select option {
+#body #main fieldset form.audio__player select option {
   appearance: none;
   -webkit-appearance: none;
   -moz-appearance: none;
@@ -390,18 +390,21 @@ fieldset form.audio__player select option {
   padding: 6px;
   margin: 2px;
 }
-fieldset form.audio__player button {
+#body #main fieldset form.audio__player button {
   width: 70px;
   height: 25px;
   font-size: 10px;
   padding: 4px;
   margin: 6px;
 }
-fieldset form.audio__player button svg {
+#body #main fieldset form.audio__player button svg {
   width: 13px;
   height: 13px;
 }
-fieldset form.audio__player .audio_option_container {
+#body #main fieldset form.audio__player button.active {
+  background-color: rgb(100, 255, 100);
+}
+#body #main fieldset form.audio__player .audio_option_container {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -409,7 +412,7 @@ fieldset form.audio__player .audio_option_container {
   flex-direction: row;
   gap: 6px;
 }
-fieldset form.audio__player .audio_option_container .range_music, fieldset form.audio__player .audio_option_container .volume {
+#body #main fieldset form.audio__player .audio_option_container .range_music, #body #main fieldset form.audio__player .audio_option_container .volume {
   width: 100px;
 }
 

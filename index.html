@@ -478,6 +478,9 @@ header, main, footer {
                         <button type="button" id="nextButton" aria-label="next play music">
                             <p>Next</p>
                         </button>
+                        <!-- <button type="button" id="stopButton" aria-label="Stop music">
+                            <p>Stop</p>
+                        </button> -->
                         <button type="button" id="autoplayButton" aria-label="Autoplay next music">
                             <p>Autoplay</p>
                         </button>
@@ -487,6 +490,9 @@ header, main, footer {
                                 <use href="./img/svg/sprite.svg#reset"></use>
                             </svg> -->
                         </button>
+                        <button type="button" id="muteButton" aria-label="Mute music">
+                            <p>Mute</p>
+                        </button>
                     </div>
                     <div class="audio_option_container">
                         <label for="volume">Volume</label>
@@ -494,7 +500,7 @@ header, main, footer {
                         <input type="range" class="volume" id="volume" name="volume" min="0" value="0.5" max="1" step="0.01" />
                     </div>
                     <div class="audio_option_container">
-                        <label for="range_music">Progress</label>
+                        <label for="range_music"></label> <!-- Progress -->
                         <p id="progress" style="text-align: center;">00:00 / 00:00</p>
                         <input type="range" class="range_music" id="range_music" name="range_music" value="0" step="1" />
                     </div>

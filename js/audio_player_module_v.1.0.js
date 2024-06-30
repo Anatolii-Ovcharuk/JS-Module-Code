@@ -3,15 +3,10 @@
     /* INSTALLATION */
 /* Use this line in HTML for include script: <script src="./js/audio_player_module_v.1.0.js" type="module"></script> */
 /* Use this line in HTML for include:             
-                <form class="audio__player" id="audio__player" audio__player data-status="stop">
+<form class="audio__player" id="audio__player" audio__player data-status="stop">
                     <div class="audio_option_container">
                         <button type="button" id="playPauseButton" aria-label="stop/start play music">
-                            <svg class="theme__icon">
-                                <use href="./img/svg/sprite.svg#play"></use>
-                            </svg>
-                            <svg class="theme__icon">
-                                <use href="./img/svg/sprite.svg#pause"></use>
-                            </svg>
+                            <p>Play | Pause</p>
                         </button>
                         <button type="button" id="previousButton" aria-label="previous play music">
                             <p>Previous</p>
@@ -28,6 +23,9 @@
                                 <use href="./img/svg/sprite.svg#reset"></use>
                             </svg> -->
                         </button>
+                        <button type="button" id="muteButton" aria-label="Mute music">
+                            <p>Mute</p>
+                        </button>
                     </div>
                     <div class="audio_option_container">
                         <label for="volume">Volume</label>
@@ -35,7 +33,7 @@
                         <input type="range" class="volume" id="volume" name="volume" min="0" value="0.5" max="1" step="0.01" />
                     </div>
                     <div class="audio_option_container">
-                        <label for="range_music">Progress</label>
+                        <label for="range_music"></label> <!-- Progress -->
                         <p id="progress" style="text-align: center;">00:00 / 00:00</p>
                         <input type="range" class="range_music" id="range_music" name="range_music" value="0" step="1" />
                     </div>
@@ -46,8 +44,10 @@
                         <label for="mono">Mono</label>
                     </div>
                     <select class="songs" id="songs" size="2" name="select">
-                        <option value="./music/example.wav" selected>Test music</option>
-                        <option value="./music/example.mp3">Test music</option>
+                        <option value="./music/LoopyMusic.wav" selected>Test music</option>
+                        <option value="./music/nickelback-bottoms-up.mp3">Nickelback - Bottoms Up</option>
+                        <option value="./music/Joshua Loucka - Light that fuse vox.mp3">Joshua Loucka - Light that fuse vox
+                        </option>
                     </select>
                 </form>
 */
@@ -68,7 +68,8 @@ const audioPlayerRefs = {
     nextButton: document.getElementById('nextButton'),
     autoplayButton: document.getElementById('autoplayButton'),
     loopButton: document.getElementById('loopButton'),
-    songSelect: document.getElementById('songs')
+    songSelect: document.getElementById('songs'),
+    muteButton: document.getElementById('muteButton'),
 };
 
 const audioContext = new (window.AudioContext || window.webkitAudioContext)();
@@ -84,6 +85,7 @@ sourceNode.connect(gainNode).connect(audioContext.destination);
 
 let isAutoplay = false;
 let isLoop = false;
+let isMuted = false;
 
 audioPlayerRefs.playPauseButton.addEventListener("click", (event) => {
     event.preventDefault();
@@ -97,11 +99,13 @@ audioPlayerRefs.playPauseButton.addEventListener("click", (event) => {
 audioPlayerRefs.previousButton.addEventListener("click", (event) => {
     event.preventDefault();
     previousSong();
+    audioElement.play();
 });
 
 audioPlayerRefs.nextButton.addEventListener("click", (event) => {
     event.preventDefault();
     nextSong();
+    audioElement.play();
 });
 
 audioPlayerRefs.autoplayButton.addEventListener("click", (event) => {
@@ -112,6 +116,12 @@ audioPlayerRefs.autoplayButton.addEventListener("click", (event) => {
 audioPlayerRefs.loopButton.addEventListener("click", (event) => {
     event.preventDefault();
     toggleLoop();
+});
+
+
+audioPlayerRefs.muteButton.addEventListener("click", (event) => {
+    event.preventDefault();
+    toggleMute();
 });
 
 function startPlay() {
@@ -162,6 +172,7 @@ audioElement.addEventListener('ended', () => {
         audioElement.play();
     } else if (isAutoplay) {
         nextSong();
+        audioElement.play();
     }
 });
 
@@ -204,6 +215,19 @@ function loadMusic(href) {
     };
 }
 
+/* Code for future */
+// function loadMusic(href) {
+//     fetch(href)
+//     .then(response => response.arrayBuffer())
+//     .then(data => audioContext.decodeAudioData(data))
+//     .then(buffer => {
+//         audioElement.src = href;
+//         audioBuffer = buffer;
+//         console.log('Audio file loaded successfully');
+//     })
+//     .catch(err => console.error('Error loading audio file:', err));
+// }
+
 function formatTime(seconds) {
     const minutes = Math.floor(seconds / 60);
     const remainingSeconds = Math.floor(seconds % 60);
@@ -233,6 +257,12 @@ function nextSong() {
 function toggleAutoplay() {
     isAutoplay = !isAutoplay;
     audioPlayerRefs.autoplayButton.classList.toggle('active', isAutoplay);
+}
+
+function toggleMute() {
+    isMuted = !isMuted;
+    audioElement.muted = isMuted;
+    audioPlayerRefs.muteButton.classList.toggle('active', isMuted);
 }
 
 function toggleLoop() {

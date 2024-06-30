@@ -184,7 +184,7 @@ main .section .field__radio {
     height: 120px;
 }
 
-fieldset {
+#body #main fieldset {
     & form.audio__player {
 
         & select {
@@ -230,6 +230,10 @@ fieldset {
             & svg {
                 width: 13px;
                 height: 13px;
+            }
+
+            &.active {
+                background-color: rgb(100, 255, 100);
             }
         }
 
