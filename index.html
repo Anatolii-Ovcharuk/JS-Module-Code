@@ -295,6 +295,14 @@ header, main, footer {
 .preload__progress::-webkit-progress-value {
     background-color: #8585ff;
 }
+
+pre {
+    white-space: pre-wrap;       /* CSS 2.1 */
+    white-space: -moz-pre-wrap;  /* Mozilla */
+    white-space: -pre-wrap;      /* Opera 4-6 */
+    white-space: -o-pre-wrap;    /* Opera 7 */
+    word-wrap: break-word;       /* IE 5.5+ */
+}
     </style>
 
 </head>
@@ -311,9 +319,10 @@ header, main, footer {
     <header id="header">
         <h2 style="text-align: center;padding-top: 10px;font-size: 22px;">"JS Module Code"</h2>
         <p style="text-align: center;padding: 10px;font-size: 16px;">Console:</p>
-        <button class="copyConsole" id="copyConsole" copyConsole href="" type="button" aria-label="Copy data" style="margin-left: 13%;padding: 2px 4px;border-radius: 5px;cursor: pointer;">Copy</button>
+        <button class="saveConsole" id="saveConsole" saveConsole href="" type="button" aria-label="Save data" style="margin-left: 13%;padding: 2px 4px;border-radius: 5px;cursor: pointer;">Save</button>
+        <button class="copyConsole" id="copyConsole" copyConsole href="" type="button" aria-label="Copy data" style="margin-left: 10px;padding: 2px 4px;border-radius: 5px;cursor: pointer;">Copy</button>
         <button class="clearConsole" id="clearConsole" clearConsole href="" type="button" aria-label="Clear data" style="margin-left: 10px;padding: 2px 4px;border-radius: 5px;cursor: pointer;">Clear</button>
-        <pre class="console" id="console" console style="display: block;margin: 10px auto;padding: 10px;width: 75%;height: 100px;box-shadow: inset 0px 0px 10px rgba(0,0,0,0.5);overflow: auto;scrollbar-color: #0066FF #353535;scrollbar-width: thin;user-select: text;"></pre>
+        <pre class="console" id="console" console style="display: block;margin: 10px auto;padding: 10px;width: 75%;height: 100px;box-shadow: inset 0px 0px 10px rgba(0,0,0,0.5);overflow: auto;scrollbar-color: #0066FF #353535;user-select: text; overflow-y: scroll; text-align: justify;"></pre> <!-- scrollbar-width: thin; -->
     </header>
     <main id="main">
         <section class="section">
@@ -458,6 +467,39 @@ header, main, footer {
         </section>
 
         <section class="section">
+            <h3 class="section__name">Name Script: Request module</h3>
+                <form class="request" id="request" request>
+                    <button type="submit" id="requestButton" aria-label="Request button">
+                        <p>Send Request</p>
+                    </button>
+                    <label for="request_url">Request link:</label>
+                    <select class="request_url" id="request_url" size="1" name="select">
+                        <option value="https://pokeapi-proxy.freecodecamp.rocks/api/pokemon/pikachu" selected>API Pokemon (Pikachu)</option>
+                        <option value="https://pokeapi-proxy.freecodecamp.rocks/api/pokemon/29">API Pokemon (ID: 29)</option>
+                        </option>
+                    </select>
+                    <label for="request_method">Method request:</label>
+                    <select class="request_method" id="request_method" size="1" name="select">
+                        <option value="GET" selected>GET</option>
+                        <option value="HEAD">HEAD</option>
+                        <option value="POST">POST</option>
+                        <option value="PUT">PUT</option>
+                        <option value="DELETE">DELETE</option>
+                        <option value="PATCH">PATCH</option>
+                    </select>
+                    <label for="request_data">Recive data:</label>
+                    <select class="request_data" id="request_data" size="1" name="select">
+                        <option value="0" selected>application/json</option>
+                        <option value="1">text/html</option>
+                        <option value="2">text/xml</option>
+                        <option value="3">Empty string</option>
+                    </select>
+                    <p>Example part data:</p>
+                    <p id="request_info">-</p>
+                </form>
+        </section>
+
+        <section class="section">
             <h3 class="section__name">Name Script: Audio player module</h3>
             <fieldset
                 style="display: flex;justify-content: center;align-items: center;flex-wrap: nowrap;flex-direction: row;font-size: 14px;padding: 1px;">
@@ -521,6 +563,15 @@ header, main, footer {
         </section>
 
 
+        <!-- <section class="section">
+            <h3 class="section__name">Name Script: Diagram (pie) module</h3>
+
+        </section>
+
+        <section class="section">
+            <h3 class="section__name">Name Script: Diagram (bar) module</h3>
+
+        </section> -->
 
         <!-- <section class="section">
             <h3 class="section__name">Name Script:</h3>
@@ -550,7 +601,7 @@ header, main, footer {
             });
     </script>
 
-    <script src="./js/console_module_v.1.1.js" type="module"></script>
+    <script src="./js/console_module_v.1.2.js" type="module"></script>
 
     <script>
         // PRELOADING SCRIPT - START 
@@ -593,17 +644,25 @@ header, main, footer {
         elem.footer.style.opacity = 0;
 
         // Default
-        refs.pre_amm.innerHTML = "10%";
-        refs.pre_pro.value = 10;
-        refs.pre_stat.innerHTML = "Loading - Date Module..."
+        refs.pre_amm.innerHTML = "0%";
+        refs.pre_pro.value = 0;
+        refs.pre_stat.innerHTML = "Initializating..."
     </script>
+
+            <script>
+                // PRELOADING SCRIPT
+                // Default
+                refs.pre_amm.innerHTML = "5%";
+                refs.pre_pro.value = 5;
+                refs.pre_stat.innerHTML = "Loading - Date Module..."
+            </script>
         <script src="./js/current_date_module_v.1.1.js" type="module"></script>
 
             <script>
                 // PRELOADING SCRIPT
                 // Default
-                refs.pre_amm.innerHTML = "20%";
-                refs.pre_pro.value = 20;
+                refs.pre_amm.innerHTML = "10%";
+                refs.pre_pro.value = 10;
                 refs.pre_stat.innerHTML = "Loading - Info Module..."
             </script>
         <script src="./js/ip_info_module_v.1.2.js" type="module"></script>
@@ -611,8 +670,8 @@ header, main, footer {
             <script>
                 // PRELOADING SCRIPT
                 // Default
-                refs.pre_amm.innerHTML = "30%";
-                refs.pre_pro.value = 30;
+                refs.pre_amm.innerHTML = "15%";
+                refs.pre_pro.value = 15;
                 refs.pre_stat.innerHTML = "Loading - Counter module..."
             </script>
         <script src="./js/visit_and_time_loading_counter_module_v.1.3.js" type="module"></script>
@@ -620,8 +679,8 @@ header, main, footer {
             <script>
                 // PRELOADING SCRIPT
                 // Default
-                refs.pre_amm.innerHTML = "40%";
-                refs.pre_pro.value = 40;
+                refs.pre_amm.innerHTML = "20%";
+                refs.pre_pro.value = 20;
                 refs.pre_stat.innerHTML = "Loading - Theme Module..."
             </script>
         <script src="./js/theme_module_v.1.4.js" type="module"></script>
@@ -629,8 +688,8 @@ header, main, footer {
             <script>
                 // PRELOADING SCRIPT
                 // Default
-                refs.pre_amm.innerHTML = "50%";
-                refs.pre_pro.value = 50;
+                refs.pre_amm.innerHTML = "25%";
+                refs.pre_pro.value = 25;
                 refs.pre_stat.innerHTML = "Loading - Generator Numbers..."
             </script>
             <script src="./js/generator_numbers_v.1.1.js" type="module"></script>
@@ -638,8 +697,8 @@ header, main, footer {
             <script>
                 // PRELOADING SCRIPT
                 // Default
-                refs.pre_amm.innerHTML = "55%";
-                refs.pre_pro.value = 55;
+                refs.pre_amm.innerHTML = "30%";
+                refs.pre_pro.value = 30;
                 refs.pre_stat.innerHTML = "Loading - Audio module..."
             </script>
             <script src="./js/audio_loop_module_v.1.0.js" type="module"></script>
@@ -647,8 +706,8 @@ header, main, footer {
             <script>
                 // PRELOADING SCRIPT
                 // Default
-                refs.pre_amm.innerHTML = "60%";
-                refs.pre_pro.value = 60;
+                refs.pre_amm.innerHTML = "35%";
+                refs.pre_pro.value = 35;
                 refs.pre_stat.innerHTML = "Loading - Generator ID..."
             </script>
             <script src="./js/generator_id_v.1.1.js" type="module"></script>
@@ -656,11 +715,38 @@ header, main, footer {
             <script>
                 // PRELOADING SCRIPT
                 // Default
-                refs.pre_amm.innerHTML = "70%";
-                refs.pre_pro.value = 70;
+                refs.pre_amm.innerHTML = "40%";
+                refs.pre_pro.value = 40;
                 refs.pre_stat.innerHTML = "Loading - Audio player..."
             </script>
             <script src="./js/audio_player_module_v.1.0.js" type="module"></script>
+
+            <script>
+                // PRELOADING SCRIPT
+                // Default
+                refs.pre_amm.innerHTML = "45%";
+                refs.pre_pro.value = 45;
+                refs.pre_stat.innerHTML = "Loading - Request module..."
+            </script>
+            <script src="./js/request_module_v.1.1.js" type="module"></script>
+
+            <!-- <script>
+                // PRELOADING SCRIPT
+                // Default
+                refs.pre_amm.innerHTML = "50%";
+                refs.pre_pro.value = 50;
+                refs.pre_stat.innerHTML = "Loading - Diagram (pie)..."
+            </script>
+            <script src="./js/diagram_pie_module_v.1.0.js" type="module"></script> -->
+
+            <!-- <script>
+                // PRELOADING SCRIPT
+                // Default
+                refs.pre_amm.innerHTML = "55%";
+                refs.pre_pro.value = 55;
+                refs.pre_stat.innerHTML = "Loading - Diagram (bar)..."
+            </script>
+            <script src="./js/diagram_bar_module_v.1.0.js" type="module"></script> -->
 
 
     <script>

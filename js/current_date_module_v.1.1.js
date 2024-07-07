@@ -38,7 +38,7 @@ const currentTime = () => {
 
 
     return (result)};
-setInterval (currentTime, 1000); /* Delete comment for refresh time on each one second */
+const scriptTime = setInterval (currentTime, 1000); /* Delete comment for refresh time on each one second */
 
 
 

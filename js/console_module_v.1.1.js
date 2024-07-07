@@ -1,11 +1,12 @@
 /* "Console module", v. 1.1 - 30.06.2024 | MIT License | Made by Anatolii Ovcharuk - https://github.com/Anatolii-Ovcharuk */
 
     /* INSTALLATION */
-/* Use this line in HTML for include: <script src="./js/console_module.js" type="module"></script> */
+/* Use this line in HTML for include: <script src="./js/console_module_v.1.1.js" type="module"></script> */
 /* Use this line in HTML for include form:  
     <section>
         <p style="text-align: center;padding: 10px;font-size: 16px;">Console:</p>
-        <button class="copy" id="copy" copy href="" type="button" aria-label="Copy data" >Copy</button>
+        <button class="copyConsole" id="copyConsole" copyConsole type="button" aria-label="Copy data" >Copy</button>
+        <button class="clearConsole" id="clearConsole" clearConsole type="button" aria-label="Clear data" >Clear</button>
         <pre class="console" id="console" console ></pre>
     </section>
 */
@@ -107,4 +108,3 @@ const refsConsole = {
                 // console.log(`Information was copied successfully... "${selection}"`);
             });
 
-            

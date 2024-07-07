@@ -89,6 +89,9 @@ function runGenId(GEN_NUM = GENERATE_NUMBER, GEN_DATE = USE_DATE) {
                 month = "0" + month;
             };
         date = (new Date).getDate().toString();
+        if (date.length === 1) {
+                date = "0" + date;
+            };
     }
 
     id = `${ randomNumbers + randomLetterFirst + i + randomLetterSecond + year + month + date}`

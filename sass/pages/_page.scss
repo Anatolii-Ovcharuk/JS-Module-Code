@@ -251,3 +251,35 @@ main .section .field__radio {
             }
     }
 }
+
+
+form#request {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    flex-wrap: nowrap;
+
+    & label, & p {
+        font-size: 13px;
+        margin: 1px;
+    }
+
+    & p#request_info {
+        text-align: center;
+        overflow: hidden;
+        overflow-y: scroll;
+        width: 260px;
+        height: 38px;
+        padding: 0px;
+
+        border: 1px solid #222222;
+        border-radius: 2px;
+    }
+
+    & button#requestButton {
+        height: 36px;
+        margin: 6px;
+        padding: 6px;
+    }
+}
