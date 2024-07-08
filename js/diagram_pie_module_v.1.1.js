@@ -127,6 +127,7 @@ setInterval(() => {
     
     path.join(
         enter => enter.append("path")
+            .attr("stroke", "white")
             .attr("fill", d => color(d.data.name))
             .attr("d", arc)
             .each(function(d) { this._current = d; })
