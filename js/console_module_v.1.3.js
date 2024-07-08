@@ -1,7 +1,7 @@
-/* "Console module", v. 1.2 - 07.07.2024 | MIT License | Made by Anatolii Ovcharuk - https://github.com/Anatolii-Ovcharuk */
+/* "Console module", v. 1.3 - 10.07.2024 | MIT License | Made by Anatolii Ovcharuk - https://github.com/Anatolii-Ovcharuk */
 
     /* INSTALLATION */
-/* Use this line in HTML for include: <script src="./js/console_module_v.1.2.js" type="module"></script> */
+/* Use this line in HTML for include: <script src="./js/console_module_v.1.3.js" type="module"></script> */
 /* Use this line in HTML for include form:  
     <section>
         <p style="text-align: center;padding: 10px;font-size: 16px;">Console:</p>
@@ -55,6 +55,10 @@ const refsConsole = {
 
 
         /* Console Log in HTML SCRIPT */
+        
+        // const console = {
+        //     _log: console.log.bind(console)
+        // };
         console._log = console.log;
 
         console.log = function () {
@@ -68,27 +72,31 @@ const refsConsole = {
         };
         
         /* Code for clear data console */
-        
+
         refsConsole.btnClear.addEventListener("click", (event) => {
             event.preventDefault();
-            console.log("Console starting clearing...");
-            let t = 4; /* That's value time to start clearing console */
-            let timerOUT = null;
-            
-            setTimeout(() => {
-                timerOUT = setInterval(() => {
-                t--;
-                console.log(`The console will be cleared after ${t} seconds.`)
-                }, 1000);
-            }, 1000)
 
-            setTimeout(() => {
-            clearInterval(timerOUT);
-            console.clear();
-            dataConsole = "";
-            console.log("Console was cleared. Version 1.2 - Update: 07.07.2024 | Made by Anatolii Ovcharuk.");
-            setTimeout(() => console.log(""), 3000);
-            }, (t*1000) + 2000);
+            if (window.confirm(" \n Do you really want to clear console ? \n Вы действительно хотите очистить консоль ?")) {
+                console.log("Console starting clearing...");
+                let t = 4; /* That's value (in seconds) time to start clearing console */
+                let timerOUT = null;
+                
+                setTimeout(() => {
+                    timerOUT = setInterval(() => {
+                    t--;
+                    console.log(`The console will be cleared after ${t} seconds.`)
+                    }, 1000);
+                }, 1000)
+
+                setTimeout(() => {
+                clearInterval(timerOUT);
+                console.clear();
+                dataConsole = "";
+                console.log("Console was cleared. Version 1.3 - Update: 10.07.2024 | Made by Anatolii Ovcharuk.");
+                setTimeout(() => console.log(""), 3000);
+                }, (t*1000) + 2000);
+            } else { console.log("Operation for clear console was Aborted.") }
+            
         });
             
         /* Code for copy data console */
@@ -97,12 +105,12 @@ const refsConsole = {
                 // API буфера обмена доступно
             console.log("Clipboard API supported.")
             setTimeout(() => { 
-                console.log("Initializate console ready. Version 1.2 - Update: 07.07.2024 | Made by Anatolii Ovcharuk.");
+                console.log("Initializate console ready. Version 1.3 - Update: 10.07.2024 | Made by Anatolii Ovcharuk.");
             }, 500);
             } else {
                 // API буфера обмена не доступно
             setTimeout(() => {
-                console.log("Initializate console ready, but Clipboard API (Copy) not supported. Version 1.2 - Update: 07.07.2024 | Made by Anatolii Ovcharuk.");
+                console.log("Initializate console ready, but Clipboard API (Copy) not supported. Version 1.3 - Update: 10.07.2024 | Made by Anatolii Ovcharuk.");
             }, 500);  
             }
 
@@ -112,7 +120,7 @@ const refsConsole = {
                 let selection = document.getSelection();
 
                 if (selection == "" || false) {
-                    selection = refsConsole.terminal.textContent || refsConsole.terminal.innerHTML || refsConsole.terminal.innerText
+                    selection = dataConsole || refsConsole.terminal.textContent || refsConsole.terminal.innerHTML || refsConsole.terminal.innerText
                 };
 
                 navigator.clipboard.writeText(selection).then(function () {
@@ -147,7 +155,7 @@ const refsConsole = {
                 event.preventDefault();
                 
             // Создаем содержимое текстового файла
-            const content = refsConsole.terminal.innerText;
+            // const content = refsConsole.terminal.innerText;
 
             // Создаем объект Blob
             // const blob = new Blob([content], { type: 'text/plain' });
@@ -197,4 +205,3 @@ const refsConsole = {
 
 
            
-            

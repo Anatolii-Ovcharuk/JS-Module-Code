@@ -563,12 +563,12 @@ pre {
         </section>
 
 
-        <!-- <section class="section">
+        <section class="section">
             <h3 class="section__name">Name Script: Diagram (pie) module</h3>
-
+            <div id="diagram_pie" style="display: flex;align-items: center;justify-content: center;"></div>
         </section>
 
-        <section class="section">
+        <!-- <section class="section">
             <h3 class="section__name">Name Script: Diagram (bar) module</h3>
 
         </section> -->
@@ -601,7 +601,7 @@ pre {
             });
     </script>
 
-    <script src="./js/console_module_v.1.2.js" type="module"></script>
+    <script src="./js/console_module_v.1.3.js" type="module"></script>
 
     <script>
         // PRELOADING SCRIPT - START 
@@ -730,20 +730,30 @@ pre {
             </script>
             <script src="./js/request_module_v.1.1.js" type="module"></script>
 
-            <!-- <script>
+            <script>
                 // PRELOADING SCRIPT
                 // Default
                 refs.pre_amm.innerHTML = "50%";
                 refs.pre_pro.value = 50;
-                refs.pre_stat.innerHTML = "Loading - Diagram (pie)..."
+                refs.pre_stat.innerHTML = "Loading - D3 JS Language..."
             </script>
-            <script src="./js/diagram_pie_module_v.1.0.js" type="module"></script> -->
+            <script src="./js/d3.v7.min.js"></script>
+            <script src="https://d3js.org/d3.v7.min.js"></script>
 
-            <!-- <script>
+            <script>
                 // PRELOADING SCRIPT
                 // Default
                 refs.pre_amm.innerHTML = "55%";
                 refs.pre_pro.value = 55;
+                refs.pre_stat.innerHTML = "Loading - Diagram (pie)..."
+            </script>
+            <script src="./js/diagram_pie_module_v.1.1.js" type="module"></script>
+
+            <!-- <script>
+                // PRELOADING SCRIPT
+                // Default
+                refs.pre_amm.innerHTML = "60%";
+                refs.pre_pro.value = 60;
                 refs.pre_stat.innerHTML = "Loading - Diagram (bar)..."
             </script>
             <script src="./js/diagram_bar_module_v.1.0.js" type="module"></script> -->
