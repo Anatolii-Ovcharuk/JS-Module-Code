@@ -443,6 +443,13 @@ form#request button#requestButton {
   padding: 6px;
 }
 
+.legend-item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 4px;
+}
+
 /* modern-normalize v1.1.0 | MIT License | https://github.com/sindresorhus/modern-normalize */
 /*
 Document

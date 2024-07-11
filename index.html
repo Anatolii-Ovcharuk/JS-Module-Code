@@ -499,7 +499,7 @@ pre {
                 </form>
         </section>
 
-        <section class="section">
+        <section class="section" style="width: 620px;">
             <h3 class="section__name">Name Script: Audio player module</h3>
             <fieldset
                 style="display: flex;justify-content: center;align-items: center;flex-wrap: nowrap;flex-direction: row;font-size: 14px;padding: 1px;">
@@ -563,14 +563,25 @@ pre {
         </section>
 
 
-        <section class="section">
+        <section class="section" style="width: 620px;">
             <h3 class="section__name">Name Script: Diagram (pie) module</h3>
-            <div id="diagram_pie" style="display: flex;align-items: center;justify-content: center;"></div>
+            <div style="display: flex;justify-content: center;align-items: center;gap: 15px;flex-wrap: nowrap;flex-direction: row">
+                <div id="diagram_pie" style="display: flex;align-items: center;justify-content: center;"></div>
+                <fieldset style="width: 200px;height: auto;margin: 20px;">
+                    <legend>Legend / Легенда</legend>
+                    <div id="diagram_pie_legend" style="display: flex;justify-content: center;align-items: last baseline;flex-wrap: nowrap;flex-direction: column;width: 80%;"></div>
+                </fieldset>
+            </div>
+
         </section>
 
-        <!-- <section class="section">
+        <!-- <section class="section" style="width: 620px;">
             <h3 class="section__name">Name Script: Diagram (bar) module</h3>
-
+            <div id="diagram_bar" style="display: flex;align-items: center;justify-content: center;"></div>
+            <fieldset style="width: 200px;height: auto;margin: 20px;">
+                <legend>Legend / Легенда</legend>
+                <div id="diagram_bar_legend"></div>
+            </fieldset>
         </section> -->
 
         <!-- <section class="section">
@@ -674,7 +685,7 @@ pre {
                 refs.pre_pro.value = 15;
                 refs.pre_stat.innerHTML = "Loading - Counter module..."
             </script>
-        <script src="./js/visit_and_time_loading_counter_module_v.1.3.js" type="module"></script>
+        <script src="./js/visit_and_time_loading_counter_module_v.1.4.js" type="module"></script>
 
             <script>
                 // PRELOADING SCRIPT
@@ -747,7 +758,7 @@ pre {
                 refs.pre_pro.value = 55;
                 refs.pre_stat.innerHTML = "Loading - Diagram (pie)..."
             </script>
-            <script src="./js/diagram_pie_module_v.1.1.js" type="module"></script>
+            <script src="./js/diagram_pie_module_v.1.2.js" type="module"></script>
 
             <!-- <script>
                 // PRELOADING SCRIPT
