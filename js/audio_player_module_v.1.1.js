@@ -374,7 +374,7 @@ setInterval(() => {
     /* audioD3 */
         /* Initialize D3 Visualization */
 
-const width = 250;
+const width = 200;
 const height = 100;
 const barWidth = width / bufferLength;
 
