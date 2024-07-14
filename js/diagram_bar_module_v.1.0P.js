@@ -11,6 +11,7 @@ import "./d3.v7.min.js";
     <fieldset style="width: 200px;height: auto;margin: 20px;">
         <legend>Legend / Легенда</legend>
         <div id="diagram_bar_legend_p"></div>
+        <p id="legend_bar_p_total"></p>
     </fieldset>
 */
 
