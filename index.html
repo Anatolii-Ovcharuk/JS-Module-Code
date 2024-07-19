@@ -478,7 +478,7 @@ pre {
                     <select class="request_url" id="request_url" size="1" name="select">
                         <option value="https://pokeapi-proxy.freecodecamp.rocks/api/pokemon/pikachu" selected>API Pokemon (Pikachu)</option>
                         <option value="https://pokeapi-proxy.freecodecamp.rocks/api/pokemon/29">API Pokemon (ID: 29)</option>
-                        </option>
+                        <option value="https://6698cffd2069c438cd702497.mockapi.io/data">API mock</option>
                     </select>
                     <label for="request_method">Method request:</label>
                     <select class="request_method" id="request_method" size="1" name="select">
@@ -607,6 +607,19 @@ pre {
                     <p id="legend_bar_v_total" style="position: absolute;bottom: 2px;left: 6px;"></p>
                 </fieldset>
             </div>
+        </section>
+
+        <section class="section">
+            <h3 class="section__name">Name Script: Signature module</h3>
+                <form id="signature-form">
+                    <canvas id="signature-pad"></canvas>
+                    <div class="controls">
+                        <button type="button" id="clear-btn">Clear</button>
+                        <button type="button" id="save-btn">Save</button>
+                    </div>
+                    <!-- <img id="saved-image" style="display: none; margin-top: 10px; border: 1px solid #000;" /> -->
+                    <button type="submit">Submit</button>
+                </form>
         </section>
 
         <!-- <section class="section">
@@ -802,6 +815,15 @@ pre {
                 refs.pre_stat.innerHTML = "Loading - Diagram (bar)..."
             </script>
             <script src="./js/diagram_bar_module_v.1.0V.js" type="module"></script>
+
+            <script>
+                // PRELOADING SCRIPT
+                // Default
+                refs.pre_amm.innerHTML = "70%";
+                refs.pre_pro.value = 70;
+                refs.pre_stat.innerHTML = "Loading - Signature module..."
+            </script>
+            <script src="./js/signature_module_v.1.0.js" type="module"></script>
 
     <script>
 

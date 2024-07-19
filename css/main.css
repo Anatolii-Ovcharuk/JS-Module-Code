@@ -450,6 +450,16 @@ form#request button#requestButton {
   margin: 4px;
 }
 
+#body #main .section form#signature-form button {
+  width: 70px;
+  height: 25px;
+  font-size: 13px;
+  font-variant: small-caps;
+  font-weight: 600;
+  padding: 4px;
+  margin: 6px;
+}
+
 /* modern-normalize v1.1.0 | MIT License | https://github.com/sindresorhus/modern-normalize */
 /*
 Document
