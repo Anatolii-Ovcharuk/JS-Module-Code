@@ -374,8 +374,8 @@ setInterval(() => {
     /* audioD3 */
         /* Initialize D3 Visualization */
 
-const width = 200;
-const height = 100;
+const width = 140;
+const height = 50;
 const barWidth = width / bufferLength;
 
 const svg = d3.select("#audioSpectr")
