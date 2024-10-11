@@ -141,24 +141,28 @@ const total = d3.sum(data, d => d.value);
 // Add a sector path for each value.
 
 svg.append("g")
-    .attr("class", "bars")
+    .attr("class", "pies")
     .attr("stroke", `${STROKE_COLOR}`)
     .style("stroke-width", STROKE_BARS ? "1px" : "0px")
     .selectAll("path")
     .data(arcs)
     .join("path")
+    .attr("class", "pie")
     .attr("fill", d => color(d.data.name))
     .attr("d", arc)
     .append("title")
-    .text(d => SHOW_IN_PERCENT_DIAGRAM ? `${d.data.name}: ${(d.data.value / total * 100).toFixed(0)}%` : `${d.data.name}: ${d.data.value.toLocaleString("en-US")}`);
+    // .text(d => SHOW_IN_PERCENT_DIAGRAM ? `${d.data.name}: ${(d.data.value / total * 100).toFixed(0)}%` : `${d.data.name}: ${d.data.value.toLocaleString("en-US")}`);
+    .text(d => SHOW_IN_PERCENT_DIAGRAM ? `${d.data.name}: ${(d.value / d3.sum(data.map(d => d.value)) * 100).toFixed(1)}%` : `${d.data.name}: ${d.data.value.toLocaleString("en-US")}`);
 
 // Create a new arc generator to place a label close to the edge.
 // The label shows the value if there is enough room.
 svg.append("g")
     .attr("text-anchor", "middle")
-  .selectAll("text")
-  .data(arcs)
-  .join("text")
+    .attr("class", "values")
+    .selectAll("text")
+    .data(arcs)
+    .join("text")
+    .attr("class", "value")
     .attr("transform", d => `translate(${arcLabel.centroid(d)})`)
     .call(text => text.append("tspan")
         .attr("y", "2")
@@ -202,27 +206,23 @@ if (REFRESH) {
         update_pie_legend();
     }, 1000);
 
+
+
+
     function update_pie_legend() {
-        let legend = null;
 
-        if (SORT_DATA_IN_LEGEND) {
-                // Sort data by value in descending order
-            const sortedData = [...data].sort((a, b) => b.value - a.value);
+let legend = d3.select("#diagram_pie_legend")
+    .selectAll(".legend-item"); // Инициализация легенды один раз
 
-            legend = d3.select("#diagram_pie_legend")
-            .selectAll(".legend-item")
-            .data(sortedData);
-
-        } else if (!SORT_DATA_IN_LEGEND) {
-            legend = d3.select("#diagram_pie_legend")
-            .selectAll(".legend-item")
-            .data(data);
-        } else {
-            console.error("Error with options value!");
-            legend = d3.select("#diagram_pie_legend")
-            .selectAll(".legend-item")
-            .data(data);
-        };
+if (SORT_DATA_IN_LEGEND) {
+    // Сортируем данные по убыванию значений
+    const sortedData = [...data].sort((a, b) => b.value - a.value);
+    legend = legend.data(sortedData, d => d.name); // Связываем отсортированные данные по уникальному ключу (например, name)
+} else if (!SORT_DATA_IN_LEGEND) {
+    legend = legend.data(data, d => d.name); // Связываем данные без сортировки по уникальному ключу (например, name)
+} else {
+    legend.data(data);
+};
 
         legend.join(
             enter => {
@@ -246,6 +246,9 @@ if (REFRESH) {
         );
     };
 
+
+
+
     function update_pie_diagram() {
         const arcs = pie(data);
 
@@ -254,18 +257,22 @@ if (REFRESH) {
             .data(arcs);
 
         svg.selectAll("title")
-            .text(d => SHOW_IN_PERCENT_DIAGRAM ? `${d.data.name}: ${(d.data.value / total * 100).toFixed(0)}%` : `${d.data.name}: ${d.data.value.toLocaleString("en-US")}`);
+            // .text(d => SHOW_IN_PERCENT_DIAGRAM ? `${d.data.name}: ${(d.data.value / total * 100).toFixed(0)}%` : `${d.data.name}: ${d.data.value.toLocaleString("en-US")}`);
+            .text(d => SHOW_IN_PERCENT_DIAGRAM ? `${d.data.name}: ${(d.value / d3.sum(data.map(d => d.value)) * 100).toFixed(1)}%` : `${d.data.name}: ${d.data.value.toLocaleString("en-US")}`);
         
-        path.join(
+        const pathlist = d3.select("#diagram_pie").select("svg").select(".pies").selectAll(".pie").data(arcs);
+        
+        pathlist.join(
             enter => enter.append("path")
+                .attr("class", "pie")
                 .attr("stroke", `${STROKE_COLOR}`)
                 .style("stroke-width", STROKE_BARS ? "1px" : "0px")
                 .attr("fill", d => color(d.data.name))
                 .attr("d", arc)
                 .each(function(d) { this._current = d; })
                 .append("title")
-                .text(d => SHOW_IN_PERCENT_DIAGRAM ? `${d.data.name}: ${(d.data.value / total * 100).toFixed(0)}%` : `${d.data.name}: ${d.data.value.toLocaleString("en-US")}`),
-            
+                // .text(d => SHOW_IN_PERCENT_DIAGRAM ? `${d.data.name}: ${(d.data.value / total * 100).toFixed(0)}%` : `${d.data.name}: ${d.data.value.toLocaleString("en-US")}`),
+                .text(d => SHOW_IN_PERCENT_DIAGRAM ? `${d.data.name}: ${(d.value / d3.sum(data.map(d => d.value)) * 100).toFixed(1)}%` : `${d.data.name}: ${d.data.value.toLocaleString("en-US")}`),
             update => update
                 .transition().duration(750)
                 .attrTween("d", function(d) {
@@ -279,18 +286,22 @@ if (REFRESH) {
         // Метка показывает значение, если достаточно места.
         const text = svg.selectAll("text")
             .data(arcs);
+        
+        const textlist = d3.select("#diagram_pie").select("svg").select(".values").selectAll(".value").data(arcs);
 
-        text.join(
+        textlist.join(
             enter => enter.append("text")
+                .attr("class", "value")
                 .attr("transform", d => `translate(${arcLabel.centroid(d)})`)
                 .call(text => text.append("tspan")
                     .attr("y", "2")
-                    .attr("x", "-16")
+                    // .attr("x", "-16")
                     .attr("font-weight", "bold")
                     .attr("font-size", fontSize)
                     .attr("fill", "#000000")
-                    .text(d => SHOW_IN_PERCENT_DIAGRAM ? `${d.data.name}: ${(d.data.value / total * 100).toFixed(0)}%` : `${d.data.name}: ${d.data.value}`)
-                ),
+                    // .text(d => SHOW_IN_PERCENT_DIAGRAM ? `${d.data.name}: ${(d.data.value / total * 100).toFixed(0)}%` : `${d.data.name}: ${d.data.value}`)
+                    .text(d => SHOW_IN_PERCENT_DIAGRAM ? `${d.data.name}: ${(d.value / d3.sum(data.map(d => d.value)) * 100).toFixed(0)}%` : `${d.data.name}: ${d.data.value.toLocaleString("en-US")}`)
+            ),
             update => update
                 .transition().duration(750)
                 .attr("transform", d => `translate(${arcLabel.centroid(d)})`)
@@ -299,8 +310,9 @@ if (REFRESH) {
                     .attr("font-weight", "bold")
                     .attr("font-size", fontSize)
                     .attr("fill", "#000000")
-                    .text(d => SHOW_IN_PERCENT_DIAGRAM ? `${d.data.name}: ${(d.data.value / total * 100).toFixed(0)}%` : `${d.data.name}: ${d.data.value}`)
-                ),
+                    // .text(d => SHOW_IN_PERCENT_DIAGRAM ? `${d.data.name}: ${(d.data.value / total * 100).toFixed(0)}%` : `${d.data.name}: ${d.data.value}`)
+                    .text(d => SHOW_IN_PERCENT_DIAGRAM ? `${d.data.name}: ${(d.value / d3.sum(data.map(d => d.value)) * 100).toFixed(0)}%` : `${d.data.name}: ${d.data.value.toLocaleString("en-US")}`)
+            ),
             exit => exit.remove()
         );
     };

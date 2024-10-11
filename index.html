@@ -501,71 +501,18 @@ pre {
                 </form>
         </section>
 
-        <section class="section" style="height: 620px;">
-            <h3 class="section__name">Name Script: Audio player module</h3>
-            <fieldset
-                style="display: flex;justify-content: center;align-items: center;flex-wrap: wrap;flex-direction: row;font-size: 14px;padding: 1px;">
-                <legend>Audio player options</legend>
-                <form class="audio__player" id="audio__player" audio__player data-status="stop" style="width: 250px;margin: 5px;">
-                    <div class="audio_option_container">
-                        <button type="button" id="playPauseButton" aria-label="stop/start play music">
-                            <svg class="theme__icon">
-                                <use href="./img/svg/sprite.svg#play"></use>
-                            </svg>
-                            <svg class="theme__icon">
-                                <use href="./img/svg/sprite.svg#pause"></use>
-                            </svg>
-                        </button>
-                        <button type="button" id="previousButton" aria-label="previous play music">
-                            <p>Previous</p>
-                        </button>
-                        <button type="button" id="nextButton" aria-label="next play music">
-                            <p>Next</p>
-                        </button>
-                        <!-- <button type="button" id="stopButton" aria-label="Stop music">
-                            <p>Stop</p>
-                        </button> -->
-                        <button type="button" id="autoplayButton" aria-label="Autoplay next music">
-                            <p>Autoplay</p>
-                        </button>
-                        <button type="button" id="loopButton" aria-label="loop music">
-                            <p>Loop</p>
-                            <!-- <svg>
-                                <use href="./img/svg/sprite.svg#reset"></use>
-                            </svg> -->
-                        </button>
-                        <button type="button" id="muteButton" aria-label="Mute music">
-                            <p>Mute</p>
-                        </button>
+
+        <section class="section">
+            <h3 class="section__name">Name Script: Signature module</h3>
+                <form id="signature-form">
+                    <canvas id="signature-pad"></canvas>
+                    <div class="controls">
+                        <button type="button" id="clear-btn">Clear</button>
+                        <button type="button" id="save-btn">Save</button>
                     </div>
-                    <div class="audio_option_container">
-                        <label for="volume">Volume</label>
-                        <p id="value_volume" style="text-align: center;">50 %</p>
-                        <input type="range" class="volume" id="volume" name="volume" min="0" value="0.5" max="1" step="0.01" />
-                    </div>
-                    <div class="audio_option_container">
-                        <label for="range_music"></label> <!-- Progress -->
-                        <p id="progress" style="text-align: center;">00:00 / 00:00</p>
-                        <input type="range" class="range_music" id="range_music" name="range_music" value="0" step="1" />
-                    </div>
-                    <div class="audio_option_container">
-                        <input type="radio" id="stereo" name="channel" value="stereo" checked />
-                        <label for="stereo">Stereo</label>
-                        <input type="radio" id="mono" name="channel" value="mono" />
-                        <label for="mono">Mono</label>
-                    </div>
-                    <select class="songs" id="songs" size="2" name="select">
-                        <option value="./music/LoopyMusic.wav" selected>Test music</option>
-                        <option value="./music/nickelback-bottoms-up.mp3">Nickelback - Bottoms Up</option>
-                        <option value="./music/Joshua Loucka - Light that fuse vox.mp3">Joshua Loucka - Light that fuse vox</option>
-                    </select>
+                    <!-- <img id="saved-image" style="display: none; margin-top: 10px; border: 1px solid #000;" /> -->
+                    <button type="submit">Submit</button>
                 </form>
-                <section style="width: 270px;margin: 2px;">
-                    <canvas id="oscilloscope" width="200" height="50" style="border: 3px solid #f9f9f9;border-radius: 5px;"></canvas>
-                    <canvas id="barscope" width="200" height="50" style="border: 3px solid #f9f9f9;border-radius: 5px;"></canvas>
-                    <div id="audioSpectr"></div>
-                </section>
-            </fieldset>
         </section>
 
 
@@ -595,17 +542,75 @@ pre {
         </section>
 
 
-        <section class="section">
-            <h3 class="section__name">Name Script: Signature module</h3>
-                <form id="signature-form">
-                    <canvas id="signature-pad"></canvas>
-                    <div class="controls">
-                        <button type="button" id="clear-btn">Clear</button>
-                        <button type="button" id="save-btn">Save</button>
+        <section class="section" style="height: 620px;">
+            <h3 class="section__name">Name Script: Audio player module</h3>
+            <fieldset
+                style="display: flex;justify-content: center;align-items: center;flex-wrap: wrap;flex-direction: row;font-size: 14px;padding: 1px;">
+                <legend>Audio player options</legend>
+                <form class="audio__player" id="audio__player" audio__player data-status="stop"
+                    style="width: 250px;margin: 5px;">
+                    <div class="audio_option_container">
+                        <button type="button" id="playPauseButton" aria-label="stop/start play music">
+                            <svg class="theme__icon">
+                                <use href="./img/svg/sprite.svg#play"></use>
+                            </svg>
+                            <svg class="theme__icon">
+                                <use href="./img/svg/sprite.svg#pause"></use>
+                            </svg>
+                        </button>
+                        <button type="button" id="previousButton" aria-label="previous play music">
+                            <p>Previous</p>
+                        </button>
+                        <button type="button" id="nextButton" aria-label="next play music">
+                            <p>Next</p>
+                        </button>
+                        <!-- <button type="button" id="stopButton" aria-label="Stop music">
+                                    <p>Stop</p>
+                                </button> -->
+                        <button type="button" id="autoplayButton" aria-label="Autoplay next music">
+                            <p>Autoplay</p>
+                        </button>
+                        <button type="button" id="loopButton" aria-label="loop music">
+                            <p>Loop</p>
+                            <!-- <svg>
+                                        <use href="./img/svg/sprite.svg#reset"></use>
+                                    </svg> -->
+                        </button>
+                        <button type="button" id="muteButton" aria-label="Mute music">
+                            <p>Mute</p>
+                        </button>
                     </div>
-                    <!-- <img id="saved-image" style="display: none; margin-top: 10px; border: 1px solid #000;" /> -->
-                    <button type="submit">Submit</button>
+                    <div class="audio_option_container">
+                        <label for="volume">Volume</label>
+                        <p id="value_volume" style="text-align: center;">50 %</p>
+                        <input type="range" class="volume" id="volume" name="volume" min="0" value="0.5" max="1" step="0.01" />
+                    </div>
+                    <div class="audio_option_container">
+                        <label for="range_music"></label> <!-- Progress -->
+                        <p id="progress" style="text-align: center;">00:00 / 00:00</p>
+                        <input type="range" class="range_music" id="range_music" name="range_music" value="0" step="1" />
+                    </div>
+                    <div class="audio_option_container">
+                        <input type="radio" id="stereo" name="channel" value="stereo" checked />
+                        <label for="stereo">Stereo</label>
+                        <input type="radio" id="mono" name="channel" value="mono" />
+                        <label for="mono">Mono</label>
+                    </div>
+                    <select class="songs" id="songs" size="2" name="select">
+                        <option value="./music/LoopyMusic.wav" selected>Test music</option>
+                        <option value="./music/nickelback-bottoms-up.mp3">Nickelback - Bottoms Up</option>
+                        <option value="./music/Joshua Loucka - Light that fuse vox.mp3">Joshua Loucka - Light that fuse vox
+                        </option>
+                    </select>
                 </form>
+                <section style="width: 270px;margin: 2px;">
+                    <canvas id="oscilloscope" width="200" height="50"
+                        style="border: 3px solid #f9f9f9;border-radius: 5px;"></canvas>
+                    <canvas id="barscope" width="200" height="50"
+                        style="border: 3px solid #f9f9f9;border-radius: 5px;"></canvas>
+                    <div id="audioSpectr"></div>
+                </section>
+            </fieldset>
         </section>
 
         <!-- <section class="section">
